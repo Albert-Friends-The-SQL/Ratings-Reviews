@@ -21,7 +21,7 @@ const reviewBuilder = () => {
   };
 };
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 100; i++) {
   const newReview = reviewBuilder();
   db.query(`INSERT INTO users (
   user,
@@ -64,8 +64,3 @@ for (let i = 0; i < 10; i++) {
       }
     });
 }
-
-  // .then(() => (
-  //   console.log('Successfull put fake data into the MySQL DB')
-  // ));
-// }
