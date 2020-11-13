@@ -21,15 +21,15 @@ const reviewBuilder = () => {
   };
 };
 
-// for (let i = 0; i < 1; i++) {
-const newReview = reviewBuilder();
-db.query(`INSERT INTO users (
+for (let i = 0; i < 10; i++) {
+  const newReview = reviewBuilder();
+  db.query(`INSERT INTO users (
   user,
   user_email) values (
     '${newReview.user}',
     '${newReview.user_email}')`)
-  .then(() => (
-    db.query(`INSERT INTO reviews (
+    .then(() => (
+      db.query(`INSERT INTO reviews (
       product_id,
       review_title,
       description,
@@ -41,7 +41,8 @@ db.query(`INSERT INTO users (
       quality,
       value,
       helpfulY,
-      helpfulN
+      helpfulN,
+      user_id
       ) values (
         1337,
         '${newReview.review_title}',
@@ -54,9 +55,17 @@ db.query(`INSERT INTO users (
         ${newReview.ratings.quality},
         ${newReview.ratings.value},
         0,
-        0)`)
-  ))
-  .then(() => (
-    console.log('Successfull put fake data into the MySQL DB')
-  ));
+        0,
+        ${i + 1})`)
+    ))
+    .then(() => {
+      if (i === 4) {
+        console.log('Successfully posted fake review data to the DB');
+      }
+    });
+}
+
+  // .then(() => (
+  //   console.log('Successfull put fake data into the MySQL DB')
+  // ));
 // }
