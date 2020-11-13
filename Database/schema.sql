@@ -27,6 +27,5 @@ CREATE TABLE reviews (
   helpfulY int NOT NULL,
   helpfulN int NOT NULL,
   user_id int,
-  PRIMARY KEY (id),
-  UNIQUE (product_id)
+  PRIMARY KEY (id)
 );
