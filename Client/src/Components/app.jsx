@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import ReviewList from './reviewList.jsx';
 import styled from 'styled-components';
+import RatingsBreakdown from './ratingsBreakdown.jsx';
+import Recommended from './recommended.jsx'
 
 const Title = styled.h2`
   color: Blue;
@@ -59,26 +61,11 @@ class App extends React.Component {
           <Row>
             <Col size={1}>
                   <Row>
-                    Top left column
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    Top left column
+                    <RatingsBreakdown />
                   </Row>
+                  <br></br>
                   <Row>
-                    Bottom left column
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    Bottom left column
+                    <Recommended />
                   </Row>
             </Col>
             <Col size={2}>
