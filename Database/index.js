@@ -11,5 +11,17 @@ const connection = mySQL.createConnection({
 connection.connect();
 connection.query = util.promisify(connection.query);
 
-module.exports = connection;
+const getReviews = (callback) => {
+  connection.query('SELECT * FROM reviews', (err, success) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, success);
+    }
+  });
+};
+
+module.exports = { connection, getReviews };
 // export default connection;
+
+//Built out method for retreiving reviews from DB - to make pull request in the morning

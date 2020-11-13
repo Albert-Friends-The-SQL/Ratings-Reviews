@@ -23,7 +23,7 @@ const reviewBuilder = () => {
 
 for (let i = 0; i < 100; i++) {
   const newReview = reviewBuilder();
-  db.query(`INSERT INTO users (
+  db.connection.query(`INSERT INTO users (
   user,
   user_email) values (
     '${newReview.user}',
