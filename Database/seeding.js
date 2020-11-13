@@ -1,4 +1,4 @@
-const faker = require('faker/locale/en');
+const faker = require('faker/locale/en.js');
 const db = require('./index');
 // const db = require('./index');
 
@@ -8,9 +8,9 @@ const reviewBuilder = () => {
   return {
     user_email: faker.internet.email(),
     user: faker.internet.userName(),
-    review_title: faker.lorem.sentence(),
-    description: faker.lorem.sentence(),
-    review_date: faker.date.recent(),
+    review_title: faker.company.catchPhrase(),
+    description: faker.company.catchPhrase(),
+    review_date: faker.date.recent().toString().split('').slice(0, 15).join(''),
     ratings: {
       size: faker.random.number(ratingRange),
       width: faker.random.number(ratingRange),
@@ -29,7 +29,7 @@ for (let i = 0; i < 100; i++) {
     '${newReview.user}',
     '${newReview.user_email}')`)
     .then(() => (
-      db.query(`INSERT INTO reviews (
+      db.connection.query(`INSERT INTO reviews (
       product_id,
       review_title,
       description,
