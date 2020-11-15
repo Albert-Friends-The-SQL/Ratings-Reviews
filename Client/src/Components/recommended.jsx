@@ -2,7 +2,8 @@ import React from 'react';
 
 const Recommended = (props) => (
   <div>
-    <div>96% OF PEOPLE RECOMMENDED</div>
+    <div id='recommendedPercent'><strong>96%</strong></div>
+    <div>of people recommended</div>
     <br></br>
     <div>of customers recommended this product</div>
     <br></br>
