@@ -1,13 +1,24 @@
 import React from 'react';
+import Star from './star.jsx';
+
+
 
 const ReviewListItem = (props) => {
   return (
-    <div>
+    <div id='reviewItem'>
       <table>
         <tbody>
+          <br></br>
+          <tr>
+            <Star starReview={props.review}/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <td id='reviewItemDate'>{props.review.review_date}</td>
+          </tr>
+
           <tr>
             <th>{props.review.review_title}</th>
-            <th>{props.review.review_date}</th>
           </tr>
 
           <tr>
@@ -15,13 +26,17 @@ const ReviewListItem = (props) => {
           </tr>
 
           <tr>
-            <td>{props.review.user}</td>
+            <td><strong>{props.review.user}</strong> - Verified Purchaser</td>
+
           </tr>
+          <br></br>
 
           <tr>
             <td>Was this review helpful?</td>
-            <td>Yes ({props.review.helpfulY})</td>
-            <td>No ({props.review.helpfulN})</td>
+            <td id='reviewItemHelpfulY'>Yes ({props.review.helpfulY})</td>
+            <td id='reviewItemHelpfulN'>No ({props.review.helpfulN})</td>
+            <br></br>
+            <br></br>
           </tr>
         </tbody>
       </table>
@@ -30,3 +45,4 @@ const ReviewListItem = (props) => {
 }
 
 export default ReviewListItem;
+{/* <td>★★★★★</td> */}
