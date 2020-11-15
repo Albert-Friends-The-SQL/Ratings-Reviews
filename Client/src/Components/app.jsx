@@ -6,22 +6,6 @@ import styled from 'styled-components';
 import RatingsBreakdown from './ratingsBreakdown.jsx';
 import Recommended from './recommended.jsx'
 
-const Title = styled.h2`
-  color: Blue;
-  font-size: 30px;
-`;
-
-const Grid = styled.div`
-
-`;
-
-const Row = styled.div`
-  display:flex;
-`;
-
-const Col = styled.div`
-  flex: ${(props) => props.size};
-`;
 
 class App extends React.Component {
   constructor(props) {
@@ -56,17 +40,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Title>Review List</Title>
+        <Title>Ratings & Reviews</Title>
         <Grid>
           <Row>
-            <Col size={1}>
-                  <Row>
-                    <RatingsBreakdown />
-                  </Row>
-                  <br></br>
-                  <Row>
-                    <Recommended />
-                  </Row>
+            <Col>
+              <Row>
+                <RatingsBreakdown />
+              </Row>
+              <br></br>
+              <Row>
+                <Recommended />
+              </Row>
             </Col>
             <Col size={2}>
               <ReviewList reviewState={this.state} onLoadMoreClick={this.onLoadMoreClick}/>
@@ -77,5 +61,23 @@ class App extends React.Component {
     )
   }
 }
+
+//Styled Components
+const Title = styled.h2`
+  color: Black;
+  font-size: 30px;
+`;
+
+const Grid = styled.div`
+
+`;
+
+const Row = styled.div`
+  display:flex;
+`;
+
+const Col = styled.div`
+  flex: ${(props) => props.size};
+`;
 
 export default App;
