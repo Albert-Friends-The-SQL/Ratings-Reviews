@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import RatingBar from './ratingBar.jsx';
 
 const RatingsBreakdown = (props) => (
   <div id='ratingsBreakdown'>
@@ -20,15 +21,15 @@ const RatingsBreakdown = (props) => (
       <div>
         <br></br>
         <div ><strong>RATING BREAKDOWN</strong></div>
-        <div>5 STARS with bar for number of ratings</div>
+          <div style={{width: "257px"}}>5 STARS <RatingBar /></div>
         <br></br>
-        <div>4 STARS with bar for number of ratings</div>
+          <div>4 STARS <RatingBar /></div>
         <br></br>
-        <div>3 STARS with bar for number of ratings</div>
+          <div>3 STARS <RatingBar /></div>
         <br></br>
-        <div>2 STARS with bar for number of ratings</div>
+          <div>2 STARS <RatingBar /></div>
         <br></br>
-        <div>1 STARS with bar for number of ratings</div>
+          <div>1 STARS <RatingBar /></div>
         <br></br>
         <br></br>
       </div>
@@ -46,6 +47,18 @@ const Row = styled.div`
 
 const Col = styled.div`
   flex: ${(props) => props.size};
+`;
+
+const BarBorder = styled.div`
+  background-color: #e3e3e3;
+  border-radius: 10px;
+`;
+
+const BarProgress = styled.div`
+  height: 8px;
+  width: 80%;
+  border-radius: 8px;
+  background-color: green;
 `;
 
 
