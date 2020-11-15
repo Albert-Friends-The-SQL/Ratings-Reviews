@@ -45,7 +45,7 @@ class App extends React.Component {
           <Row>
             <Col>
               <Row>
-                <RatingsBreakdown />
+                <RatingsBreakdown size={1} />
               </Row>
               <br></br>
               <Row>
