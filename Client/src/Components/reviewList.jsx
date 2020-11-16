@@ -7,9 +7,9 @@ const ReviewList = (props) => {
   return (
     <div>
       <div id='filterBtns'>
-        <button id='filterBtn'>NEWEST</button>
+        <button id='filterBtn' onClick={props.onNewestClick}>NEWEST</button>
         <button id='filterBtn' onClick={props.onHelpfulClick}>HELPFUL</button>
-        <button id='filterBtn'>RELEVANT</button>
+        <button id='filterBtn' onClick={props.onRelevantClick}>RELEVANT</button>
       </div>
       {currentReviews.map((review) => (
         <ReviewListItem review={review} />
