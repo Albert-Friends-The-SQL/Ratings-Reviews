@@ -12,6 +12,7 @@ const reviewBuilder = () => {
     review_title: faker.company.catchPhrase(),
     description: faker.company.catchPhrase(),
     review_date: faker.date.recent().toString().split('').slice(0, 15).join(''),
+    // review_date: faker.date.recent().toString(),
     ratings: {
       size: faker.random.number(ratingRange),
       width: faker.random.number(ratingRange),
