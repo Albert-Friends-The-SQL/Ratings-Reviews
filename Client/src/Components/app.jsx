@@ -16,6 +16,18 @@ class App extends React.Component {
     };
 
     this.onLoadMoreClick = this.onLoadMoreClick.bind(this);
+    this.onHelpfulClick = this.onHelpfulClick.bind(this);
+  }
+
+  onHelpfulClick() {
+    let allData = this.state.reviewData.slice();
+    allData.sort((a, b) => {
+      return b.helpfulY - a.helpfulY;
+    })
+
+    this.setState({
+      reviewData: allData
+    })
   }
 
   onLoadMoreClick() {
@@ -43,17 +55,28 @@ class App extends React.Component {
         <Title>Ratings & Reviews</Title>
         <Grid>
           <Row>
-            <Col style={{marginRight: '13px'}}>
+            <Col
+              style={{marginRight: '13px'}}
+            >
               <Row>
-                <RatingsBreakdown size={1} allReviews={this.state.reviewData}/>
+                <RatingsBreakdown
+                  size={1}
+                  allReviews={this.state.reviewData}
+                />
               </Row>
               <br></br>
               <Row>
-                <Recommended reviewState={this.state}/>
+                <Recommended
+                  reviewState={this.state}
+                />
               </Row>
             </Col>
             <Col size={2}>
-              <ReviewList reviewState={this.state} onLoadMoreClick={this.onLoadMoreClick}/>
+              <ReviewList
+                reviewState={this.state}
+                onLoadMoreClick={this.onLoadMoreClick}
+                onHelpfulClick={this.onHelpfulClick}
+              />
             </Col>
           </Row>
         </Grid>
