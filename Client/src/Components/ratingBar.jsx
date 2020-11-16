@@ -1,44 +1,61 @@
 import React from 'react';
 import styled from 'styled-components';
+import { forEach } from 'underscore';
 
 const RatingBar = (props) => {
+  let count = 0;
+  let totalReview = 0;
+  forEach(props.allReviews, ((review) => {
+    if (review.value === props.star) {
+      count++;
+    }
+    totalReview++;
+  }))
+  let overallPercentage = (count/totalReview * 100)
+
   return (
-    <BarBorder>
-      <BarProgress></BarProgress>
-    </BarBorder>
+    <div>
+    <RatingBox>{props.star} STARS<TotalReviews>{count}</TotalReviews>
+      <BarBorder>
+        <BarProgress style={{width: `${overallPercentage}%`}}></BarProgress>
+      </BarBorder>
+    </RatingBox>
+    <br></br>
+    </div>
   )
-        // return (
-        //   <div id='barBorder' style={{
-        //     backgroundColor: "#e3e3e3",
-        //     borderRadius: "10px",
-        //     width:"70%",
-        //     float:"right",
-        //     marginTop: "4px"
-        //   }}>
-        //     <div id='barProgress' style={{
-        //       height: "8px",
-        //       width: "80%",
-        //       borderRadius: "8px",
-        //       backgroundColor: "#2ada71"
-        //     }}>
-        //     </div>
-        //   </div>
-        // )
 }
 
+const RatingBox = styled.div`
+  width: 257px;
+`;
+
+const StarNumber = styled.div`
+  font-size: 12px;
+  clear:right;
+`;
+
 const BarBorder = styled.div`
-  background-color: #e3e3e3;
-  border-radius: 10px;
-  width:70%;
+  background-color: #b8b8b8;
+  height: 4px
+  border-radius: 15px;
+  width:155px;
   float:right;
-  margin-top: 4px;
+  margin-top: 7px;
 `;
 
 const BarProgress = styled.div`
-  height: 8px;
-  border-radius: 8px;
-  width:80%;
+  height: 4px;
+  border-radius: 15px;
+  /* width: ${(props) => props.percent}; */
+  /* width: 50%; */
   background-color:#2ada71;
+`;
+
+const TotalReviews = styled.div`
+  float: right;
+  margin: 4px 15px 5px 6px;
+  line-height: 10px;
+  font-size: 13px
 `;
 
 export default RatingBar;
