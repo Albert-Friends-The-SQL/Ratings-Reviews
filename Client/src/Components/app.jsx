@@ -49,7 +49,7 @@ class App extends React.Component {
               </Row>
               <br></br>
               <Row>
-                <Recommended />
+                <Recommended reviewState={this.state}/>
               </Row>
             </Col>
             <Col size={2}>
