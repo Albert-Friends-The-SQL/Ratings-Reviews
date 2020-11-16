@@ -11,10 +11,11 @@ const ReviewListItem = (props) => {
           <br></br>
           <tr>
             <Star starReview={props.review}/>
-            <br></br>
-            <br></br>
-            <br></br>
             <td id='reviewItemDate'>{props.review.review_date}</td>
+            <br></br>
+            <br></br>
+            <br></br>
+
           </tr>
 
           <tr>
