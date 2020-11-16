@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import SpanQuality from './recommendedItemSpan.jsx';
+import RecommendedTriangle from './recommendedTriangle.jsx';
 
 const RecommendedItem = (props) => {
   const categories = {
@@ -8,25 +10,40 @@ const RecommendedItem = (props) => {
     Comfort: ['UNCOMFORTABLE', 'COMFORTABLE'],
     Quality: ['POOR', 'PERFECT']
   }
-  console.log(props.quality)
-  console.log(categories[props.quality])
+
   return (
     <div>
       <Quality>{props.quality}</Quality>
       <ComparisonBar>
-
           <ComparisonBarFirstBreak></ComparisonBarFirstBreak>
-
           <ComparisonBarSecondBreak></ComparisonBarSecondBreak>
-
           <ComparisonBarThirdBreak></ComparisonBarThirdBreak>
-
+          {/* <TriangleIndicator></TriangleIndicator> */}
+          <RecommendedTriangle reviewState={props.reviewState} quality={props.quality}/>
         </ComparisonBar>
-        <SpanAll><span>Left</span><span style={{marginLeft:"9px"}}>Middle</span><span style={{marginRight: '7px'}}>Right</span></SpanAll>
+        <SpanAll>
+          {categories[props.quality].map((quality) => (
+            <SpanQuality quality={quality}/>
+          ))}
+        </SpanAll>
         <br></br>
     </div>
   )
 }
+
+// const TriangleIndicator = styled.div`
+//   position: absolute;
+//   left: 64%;
+//   background-color: transparent;
+//   height: auto;
+//   top: -12px;
+//   width: 0;
+//   border-color: #000 transparent transparent;
+//   border-top-color: #2ada71;
+//   border-style: solid;
+//   border-width: 20px 10px;
+//   margin: 0;
+// `;
 
 const ComparisonBar = styled.div`
   position: relative;
@@ -39,10 +56,12 @@ const ComparisonBar = styled.div`
 
 const SpanAll = styled.div`
   display: flex;
-  font-size: 12px;
+  font-size: 10px;
   justify-content: space-between;
   letter-spacing: 1px;
   box-sizing: border-box;
+  margin-right: 6px;
+  margin-top: 7px;
 `;
 
 const ComparisonBarFirstBreak = styled.div`
