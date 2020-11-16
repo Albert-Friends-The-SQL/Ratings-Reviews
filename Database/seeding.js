@@ -3,7 +3,7 @@ const db = require('./index');
 // const db = require('./index');
 
 const reviewBuilder = () => {
-  const ratingRange = { min: 2, max: 5 };
+  const ratingRange = { min: 1, max: 5 };
   const helpfulRange = { min: 0, max: 50 };
 
   return {
