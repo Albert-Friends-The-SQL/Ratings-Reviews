@@ -31,20 +31,6 @@ const RecommendedItem = (props) => {
   )
 }
 
-// const TriangleIndicator = styled.div`
-//   position: absolute;
-//   left: 64%;
-//   background-color: transparent;
-//   height: auto;
-//   top: -12px;
-//   width: 0;
-//   border-color: #000 transparent transparent;
-//   border-top-color: #2ada71;
-//   border-style: solid;
-//   border-width: 20px 10px;
-//   margin: 0;
-// `;
-
 const ComparisonBar = styled.div`
   position: relative;
   margin-top: 4px;
