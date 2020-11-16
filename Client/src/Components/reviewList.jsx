@@ -11,8 +11,12 @@ const ReviewList = (props) => {
         <button id='filterBtn' onClick={props.onHelpfulClick}>HELPFUL</button>
         <button id='filterBtn' onClick={props.onRelevantClick}>RELEVANT</button>
       </div>
-      {currentReviews.map((review) => (
-        <ReviewListItem review={review} />
+      {currentReviews.map((review, idx) => (
+        <ReviewListItem
+          review={review}
+          onHelpfulClickNumber={props.onHelpfulClickNumber}
+          idx={idx}
+        />
       ))}
       <br></br>
       <button
