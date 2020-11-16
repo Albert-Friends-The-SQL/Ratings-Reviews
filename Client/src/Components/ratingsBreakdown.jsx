@@ -21,17 +21,10 @@ const RatingsBreakdown = (props) => (
       <div>
         <br></br>
         <div ><strong>RATING BREAKDOWN</strong></div>
-          <div style={{width: "257px"}}>5 STARS <RatingBar /></div>
-        <br></br>
-          <div>4 STARS <RatingBar /></div>
-        <br></br>
-          <div>3 STARS <RatingBar /></div>
-        <br></br>
-          <div>2 STARS <RatingBar /></div>
-        <br></br>
-          <div>1 STARS <RatingBar /></div>
-        <br></br>
-        <br></br>
+
+          {stars.map((star) => (
+            <RatingBar star={star} allReviews={props.allReviews}/>
+          ))}
       </div>
     </div>
 
@@ -49,17 +42,8 @@ const Col = styled.div`
   flex: ${(props) => props.size};
 `;
 
-const BarBorder = styled.div`
-  background-color: #e3e3e3;
-  border-radius: 10px;
-`;
 
-const BarProgress = styled.div`
-  height: 8px;
-  width: 80%;
-  border-radius: 8px;
-  background-color: green;
-`;
 
+const stars = [5, 4, 3, 2, 1];
 
 export default RatingsBreakdown;
