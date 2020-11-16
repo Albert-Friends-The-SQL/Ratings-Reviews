@@ -12,7 +12,7 @@ connection.connect();
 connection.query = util.promisify(connection.query);
 
 const getReviews = (callback) => {
-  connection.query('SELECT * FROM reviews', (err, success) => {
+  connection.query('SELECT * FROM users, reviews WHERE users.id = reviews.user_id', (err, success) => {
     if (err) {
       callback(err);
     } else {

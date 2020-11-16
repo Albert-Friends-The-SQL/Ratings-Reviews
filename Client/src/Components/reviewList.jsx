@@ -6,10 +6,17 @@ const ReviewList = (props) => {
 
   return (
     <div>
+      <div id='filterBtns'>
+        <button id='filterBtn'>NEWEST</button>
+        <button id='filterBtn'>HELPFUL</button>
+        <button id='filterBtn'>RELEVANT</button>
+      </div>
       {currentReviews.map((review) => (
         <ReviewListItem review={review} />
       ))}
-      <button id='load-more' onClick={props.onLoadMoreClick}>Load More</button>
+      <br></br>
+      <button id='bottomReviewBtn' onClick={props.onLoadMoreClick}>LOAD MORE</button>
+      <button id='bottomReviewBtn'>WRITE A REVIEW</button>
     </div>
   )
 }

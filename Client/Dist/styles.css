@@ -1,0 +1,83 @@
+/* Review List Items */
+th {
+  text-align: left;
+}
+
+#reviewItem {
+  border-bottom: 1px solid black;
+}
+
+#reviewItemDate {
+  position: absolute;
+  right: 20px;
+  font-size: 12px;
+}
+
+#reviewItemHelpfulY {
+  position: absolute;
+  left: 520px;
+}
+
+#reviewItemHelpfulN {
+  position: absolute;
+  left: 580px;
+}
+
+
+/* Filter Buttons */
+#filterBtns {
+  text-align: center;
+}
+
+#filterBtn {
+  background-color: rgb(255, 255, 255);
+  width: 33%;
+  border: .5px solid black;
+  padding: 15px;
+
+}
+
+#filterBtn:hover {
+  color: blue;
+}
+
+/* Bottom Review Buttons */
+#bottomReviewBtn {
+  background-color: rgb(255, 255, 255);
+  text-align: left;
+  width: 50%;
+  padding: 15px;
+  border: .5px solid black;
+}
+
+#bottomReviewBtn:hover {
+  color:blue;
+}
+
+
+/* Ratings Breakdown */
+#ratingsBreakdown {
+  border-bottom: 1px solid black;
+}
+
+#breakdownBox {
+  background-color: #2ada71;
+}
+
+#totalrating {
+  font-size: 40px;
+  padding: 8px;
+  float: right;
+  text-align: center;
+}
+
+#totalReview {
+  font-size: 13px;
+  text-align: left;
+  margin-top: 13px;
+}
+
+/* Recommended Section */
+#recommendedPercent {
+  font-size: 30px;
+}
