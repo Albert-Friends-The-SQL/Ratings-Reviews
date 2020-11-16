@@ -11,16 +11,19 @@ th {
   position: absolute;
   right: 20px;
   font-size: 12px;
+  margin-top: 16px;
 }
 
 #reviewItemHelpfulY {
   position: absolute;
-  left: 520px;
+  left: 450px;
+  margin-top: 8px
 }
 
 #reviewItemHelpfulN {
   position: absolute;
-  left: 580px;
+  left: 500px;
+  margin-top: 8px
 }
 
 
