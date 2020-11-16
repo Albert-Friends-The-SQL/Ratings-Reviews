@@ -9,7 +9,7 @@ const Recommended = (props) => {
     <div>of customers recommended this product</div>
     <br></br>
     {qualities.map((quality) => (
-      <RecommendedItem quality={quality} />
+      <RecommendedItem quality={quality} reviewState={props.reviewState}/>
     ))}
   </div>
   )
