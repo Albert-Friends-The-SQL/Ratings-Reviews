@@ -3,6 +3,7 @@ const App = express();
 const db = require('../Database/index.js');
 
 App.use(express.static('Client/Dist'));
+App.use(express.json());
 
 App.get('/', (req, res) => (
   console.log('Hi there, you conencted to the server')
@@ -17,6 +18,17 @@ App.get('/api/products/1337/reviews', (req, res) => {
     }
   });
 });
+
+App.put('/api/products/1337/reviews', (req, res) => {
+  console.log(req.body)
+  db.updateHelpful(req.body.id, req.body.helpful.toLowerCase(), (err, success) => {
+    if (err) {
+      res.status(404).send('Error updating helpful number')
+    } else {
+      res.status(200).send(success);
+    }
+  })
+})
 
 App.listen(3003, () => (
   console.log('Listening on port 3003')
