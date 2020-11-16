@@ -13,33 +13,40 @@ class App extends React.Component {
     super(props)
     this.state = {
       reviewData: [],
-      reviewCount: 2
+      reviewCount: 2,
+      clickedHelpful: false,
+      newest: false,
+      helpful: false,
+      relevant: false
     };
 
     this.onLoadMoreClick = this.onLoadMoreClick.bind(this);
     this.onHelpfulClick = this.onHelpfulClick.bind(this);
     this.onRelevantClick = this.onRelevantClick.bind(this);
     this.onNewestClick = this.onNewestClick.bind(this);
+    this.onHelpfulClickNumber = this.onHelpfulClickNumber.bind(this);
   }
 
-  onHelpfulClick() {
-    let allData = this.state.reviewData.slice();
-    allData.sort((a, b) => {
-      return b.helpfulY - a.helpfulY;
-    })
+  onHelpfulClickNumber(e, index) {
+    const reviewId = this.state.reviewData[index].id
+    axios.put('/api/products/1337/reviews', {id: reviewId, helpful: e.target.innerText})
+      .then((success) => {
+        return axios.get('/api/products/1337/reviews')
+      })
+      .then((success) => {
+        console.log('SUCCESS', success.data)
+        this.setState({
+          reviewData: success.data
+        })
 
-    this.setState({
-      reviewData: allData
-    })
-  }
-
-  onRelevantClick() {
-    let allData = this.state.reviewData.slice();
-    allData = shuffle(allData);
-
-    this.setState({
-      reviewData: allData
-    })
+        if (this.state.newest) {
+          this.onNewestClick();
+        } else if (this.state.helpful) {
+          this.onHelpfulClick();
+        } else if (this.state.relevant) {
+          this.onRelevantClick();
+        }
+      })
   }
 
   onNewestClick() {
@@ -49,7 +56,36 @@ class App extends React.Component {
     })
 
     this.setState({
-      reviewData: allData
+      reviewData: allData,
+      newest: true,
+      helpful: false,
+      relevant: false
+    })
+  }
+
+  onHelpfulClick() {
+    let allData = this.state.reviewData.slice();
+    allData.sort((a, b) => {
+      return b.helpfulY - a.helpfulY;
+    })
+
+    this.setState({
+      reviewData: allData,
+      newest: false,
+      helpful: true,
+      relevant: false
+    })
+  }
+
+  onRelevantClick() {
+    let allData = this.state.reviewData.slice();
+    allData = shuffle(allData);
+
+    this.setState({
+      reviewData: allData,
+      newest: false,
+      helpful: false,
+      relevant: true
     })
   }
 
@@ -101,6 +137,7 @@ class App extends React.Component {
                 onHelpfulClick={this.onHelpfulClick}
                 onRelevantClick={this.onRelevantClick}
                 onNewestClick={this.onNewestClick}
+                onHelpfulClickNumber={this.onHelpfulClickNumber}
               />
             </Col>
           </Row>
