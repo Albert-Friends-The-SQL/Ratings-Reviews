@@ -1,9 +1,11 @@
 import React from 'react';
 import Star from './star.jsx';
+import styled from 'styled-components'
 
 
 
 const ReviewListItem = (props) => {
+  console.log(props)
   return (
     <div id='reviewItem'>
       <table>
@@ -24,8 +26,13 @@ const ReviewListItem = (props) => {
 
           <tr>
             <td>{props.review.description}</td>
+            <br></br>
+            <br></br>
           </tr>
 
+          <tr>
+            <td style={{fontSize: "11px"}}>I recommended this product</td>
+          </tr>
           <tr>
             <td><strong>{props.review.user}</strong> - Verified Purchaser</td>
 
@@ -34,8 +41,10 @@ const ReviewListItem = (props) => {
 
           <tr>
             <td>Was this review helpful?</td>
-            <td id='reviewItemHelpfulY'>Yes ({props.review.helpfulY})</td>
-            <td id='reviewItemHelpfulN'>No ({props.review.helpfulN})</td>
+            <TableDataYLabel onClick={(e, idx) => props.onHelpfulClickNumber(e, props.idx)}>Yes</TableDataYLabel>
+            <TableDataY >[{props.review.helpfulY}]</TableDataY>
+            <TableDataNLabel onClick={(e, idx) => props.onHelpfulClickNumber(e, props.idx)}>No</TableDataNLabel>
+            <TableDataN >[{props.review.helpfulN}]</TableDataN>
             <br></br>
             <br></br>
           </tr>
@@ -45,5 +54,20 @@ const ReviewListItem = (props) => {
   )
 }
 
+const TableDataYLabel = styled.td`
+  text-decoration: underline;
+`;
+
+const TableDataY = styled.td`
+
+`;
+
+const TableDataNLabel = styled.td`
+  text-decoration: underline;
+`;
+
+const TableDataN = styled.td`
+
+`;
+
 export default ReviewListItem;
-{/* <td>★★★★★</td> */}
