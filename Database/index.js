@@ -21,7 +21,25 @@ const getReviews = (callback) => {
   });
 };
 
-module.exports = { connection, getReviews };
-// export default connection;
+const updateHelpful = (id, helpful, callback) => {
+  if (helpful === 'yes') {
+    connection.query(`UPDATE reviews SET helpfulY = helpfulY + 1 WHERE id = ${id}`, (err, success) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, success)
+      }
+    })
+  } else {
+    connection.query(`UPDATE reviews SET helpfulN = helpfulN + 1 WHERE id = ${id}`, (err, success) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, success)
+      }
+    })
+  }
+}
 
-//Built out method for retreiving reviews from DB - to make pull request in the morning
+module.exports = { connection, getReviews, updateHelpful };
+// export default connection;
