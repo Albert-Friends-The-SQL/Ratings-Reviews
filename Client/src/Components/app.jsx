@@ -43,9 +43,9 @@ class App extends React.Component {
         <Title>Ratings & Reviews</Title>
         <Grid>
           <Row>
-            <Col>
+            <Col style={{marginRight: '13px'}}>
               <Row>
-                <RatingsBreakdown size={1} />
+                <RatingsBreakdown size={1} allReviews={this.state.reviewData}/>
               </Row>
               <br></br>
               <Row>
