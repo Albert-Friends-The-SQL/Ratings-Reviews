@@ -8,14 +8,15 @@ const ReviewList = (props) => {
     <div>
       <div id='filterBtns'>
         <button id='filterBtn'>NEWEST</button>
-        <button id='filterBtn'>HELPFUL</button>
+        <button id='filterBtn' onClick={props.onHelpfulClick}>HELPFUL</button>
         <button id='filterBtn'>RELEVANT</button>
       </div>
       {currentReviews.map((review) => (
         <ReviewListItem review={review} />
       ))}
       <br></br>
-      <button id='bottomReviewBtn' onClick={props.onLoadMoreClick}>LOAD MORE</button>
+      <button
+        id='bottomReviewBtn' onClick={props.onLoadMoreClick}>LOAD MORE</button>
       <button id='bottomReviewBtn'>WRITE A REVIEW</button>
     </div>
   )
