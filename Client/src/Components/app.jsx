@@ -5,6 +5,7 @@ import ReviewList from './reviewList.jsx';
 import styled from 'styled-components';
 import RatingsBreakdown from './ratingsBreakdown.jsx';
 import Recommended from './recommended.jsx'
+import { shuffle } from 'underscore';
 
 
 class App extends React.Component {
@@ -17,12 +18,34 @@ class App extends React.Component {
 
     this.onLoadMoreClick = this.onLoadMoreClick.bind(this);
     this.onHelpfulClick = this.onHelpfulClick.bind(this);
+    this.onRelevantClick = this.onRelevantClick.bind(this);
+    this.onNewestClick = this.onNewestClick.bind(this);
   }
 
   onHelpfulClick() {
     let allData = this.state.reviewData.slice();
     allData.sort((a, b) => {
       return b.helpfulY - a.helpfulY;
+    })
+
+    this.setState({
+      reviewData: allData
+    })
+  }
+
+  onRelevantClick() {
+    let allData = this.state.reviewData.slice();
+    allData = shuffle(allData);
+
+    this.setState({
+      reviewData: allData
+    })
+  }
+
+  onNewestClick() {
+    let allData = this.state.reviewData.slice();
+    allData.sort((a, b) => {
+      return new Date(b.review_date) - new Date(a.review_date);
     })
 
     this.setState({
@@ -76,6 +99,8 @@ class App extends React.Component {
                 reviewState={this.state}
                 onLoadMoreClick={this.onLoadMoreClick}
                 onHelpfulClick={this.onHelpfulClick}
+                onRelevantClick={this.onRelevantClick}
+                onNewestClick={this.onNewestClick}
               />
             </Col>
           </Row>
