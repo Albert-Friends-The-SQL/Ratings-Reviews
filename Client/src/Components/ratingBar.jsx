@@ -15,7 +15,9 @@ const RatingBar = (props) => {
 
   return (
     <div>
-    <RatingBox>{props.star} STARS<TotalReviews>{count}</TotalReviews>
+    <RatingBox>
+      <StarNumber onClick={() => props.onStarRatingClick(props.star)}>{props.star} STARS</StarNumber>
+      <TotalReviews>{count}</TotalReviews>
       <BarBorder>
         <BarProgress style={{width: `${overallPercentage}%`}}></BarProgress>
       </BarBorder>
@@ -30,8 +32,8 @@ const RatingBox = styled.div`
 `;
 
 const StarNumber = styled.div`
-  font-size: 12px;
-  clear:right;
+  font-size: 15px;
+  text-decoration: underline;
 `;
 
 const BarBorder = styled.div`
@@ -40,7 +42,7 @@ const BarBorder = styled.div`
   border-radius: 15px;
   width:155px;
   float:right;
-  margin-top: 7px;
+  margin-top: -10px;
 `;
 
 const BarProgress = styled.div`
@@ -53,7 +55,7 @@ const BarProgress = styled.div`
 
 const TotalReviews = styled.div`
   float: right;
-  margin: 4px 15px 5px 6px;
+  margin: -14px 15px 5px 6px;
   line-height: 10px;
   font-size: 13px
 `;
