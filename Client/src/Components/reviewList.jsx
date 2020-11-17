@@ -2,7 +2,7 @@ import React from 'react';
 import ReviewListItem from './ReviewListItem.jsx'
 
 const ReviewList = (props) => {
-  const currentReviews = props.reviewState.reviewData.slice(0, props.reviewState.reviewCount);
+  const currentReviews = props.reviewState.displayData.slice(0, props.reviewState.reviewCount);
 
   return (
     <div>
@@ -11,11 +11,10 @@ const ReviewList = (props) => {
         <button id='filterBtn' onClick={props.onHelpfulClick}>HELPFUL</button>
         <button id='filterBtn' onClick={props.onRelevantClick}>RELEVANT</button>
       </div>
-      {currentReviews.map((review, idx) => (
+      {currentReviews.map((review) => (
         <ReviewListItem
           review={review}
           onHelpfulClickNumber={props.onHelpfulClickNumber}
-          idx={idx}
         />
       ))}
       <br></br>

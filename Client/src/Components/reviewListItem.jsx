@@ -5,7 +5,6 @@ import styled from 'styled-components'
 
 
 const ReviewListItem = (props) => {
-  console.log(props)
   return (
     <div id='reviewItem'>
       <table>
@@ -31,7 +30,7 @@ const ReviewListItem = (props) => {
           </tr>
 
           <tr>
-            <td style={{fontSize: "11px"}}>I recommended this product</td>
+            <td style={{fontSize: "11px"}}>I recommend this product</td>
           </tr>
           <tr>
             <td><strong>{props.review.user}</strong> - Verified Purchaser</td>
@@ -41,9 +40,9 @@ const ReviewListItem = (props) => {
 
           <tr>
             <td>Was this review helpful?</td>
-            <TableDataYLabel onClick={(e, idx) => props.onHelpfulClickNumber(e, props.idx)}>Yes</TableDataYLabel>
+            <TableDataYLabel onClick={(e, id) => props.onHelpfulClickNumber(e, props.review.id)}>Yes</TableDataYLabel>
             <TableDataY >[{props.review.helpfulY}]</TableDataY>
-            <TableDataNLabel onClick={(e, idx) => props.onHelpfulClickNumber(e, props.idx)}>No</TableDataNLabel>
+            <TableDataNLabel onClick={(e, id) => props.onHelpfulClickNumber(e, props.review.id)}>No</TableDataNLabel>
             <TableDataN >[{props.review.helpfulN}]</TableDataN>
             <br></br>
             <br></br>
