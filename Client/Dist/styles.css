@@ -84,3 +84,9 @@ th {
 #recommendedPercent {
   font-size: 30px;
 }
+
+/* Review Modal */
+.ModalBgActive {
+  visibility: visible;
+  opacity: 1;
+}
