@@ -5,9 +5,16 @@ import { forEach } from 'underscore';
 
 const RatingsBreakdown = (props) => {
   let allReviews = 0;
+  let totalRating = 0;
   forEach(props.allReviews, review => {
     allReviews++
+    totalRating+= review.value;
   })
+  let avgRating = totalRating / allReviews;
+  if (avgRating.toString().length === 1) {
+    avgRating+= '.0';
+  }
+
 
   return (
     <div id='ratingsBreakdown'>
@@ -16,10 +23,10 @@ const RatingsBreakdown = (props) => {
         <div id='breakdownBox'>
           <Row>
             <Col size={1}>
-              <div id='totalrating'><strong>4.6</strong></div>
+              <div id='totalrating'><strong>{avgRating}</strong></div>
             </Col>
             <Col id='totalReview' size={1}>
-              <Row>★★★★☆</Row>
+              <Row>★★★☆☆</Row>
               <Row>{allReviews} reviews</Row>
             </Col>
           </Row>
