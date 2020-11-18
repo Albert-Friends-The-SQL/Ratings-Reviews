@@ -20,7 +20,7 @@ const reviewBuilder = () => {
       quality: faker.random.number(ratingRange),
       value: faker.random.number(ratingRange),
       helpfulY: faker.random.number(helpfulRange),
-      helpfulN: faker.random.number(helpfulRange)
+      helpfulN: faker.random.number(helpfulRange),
     },
   };
 };
@@ -46,6 +46,7 @@ for (let i = 0; i < 100; i++) {
       value,
       helpfulY,
       helpfulN,
+      recommended,
       user_id
       ) values (
         1337,
@@ -60,6 +61,7 @@ for (let i = 0; i < 100; i++) {
         ${newReview.ratings.value},
         ${newReview.ratings.helpfulY},
         ${newReview.ratings.helpfulN},
+        'yes',
         ${i + 1})`)
     ))
     .then(() => {
