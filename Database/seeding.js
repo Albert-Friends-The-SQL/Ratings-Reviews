@@ -4,6 +4,7 @@ const db = require('./index');
 
 const reviewBuilder = () => {
   const ratingRange = { min: 1, max: 5 };
+  const helpfulRange = { min: 0, max: 50 };
 
   return {
     user_email: faker.internet.email(),
@@ -11,12 +12,15 @@ const reviewBuilder = () => {
     review_title: faker.company.catchPhrase(),
     description: faker.company.catchPhrase(),
     review_date: faker.date.recent().toString().split('').slice(0, 15).join(''),
+    // review_date: faker.date.recent().toString(),
     ratings: {
       size: faker.random.number(ratingRange),
       width: faker.random.number(ratingRange),
       comfort: faker.random.number(ratingRange),
       quality: faker.random.number(ratingRange),
       value: faker.random.number(ratingRange),
+      helpfulY: faker.random.number(helpfulRange),
+      helpfulN: faker.random.number(helpfulRange)
     },
   };
 };
@@ -54,8 +58,8 @@ for (let i = 0; i < 100; i++) {
         ${newReview.ratings.comfort},
         ${newReview.ratings.quality},
         ${newReview.ratings.value},
-        0,
-        0,
+        ${newReview.ratings.helpfulY},
+        ${newReview.ratings.helpfulN},
         ${i + 1})`)
     ))
     .then(() => {

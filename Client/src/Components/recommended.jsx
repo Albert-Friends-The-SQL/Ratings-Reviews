@@ -1,20 +1,18 @@
 import React from 'react';
+import RecommendedItem from './recommendedItem.jsx'
 
-const Recommended = (props) => (
+const Recommended = (props) => {
+  const qualities = ['Size', 'Width', 'Comfort', 'Quality'];
+  return (
   <div>
     <div id='recommendedPercent'><strong>96%</strong></div>
-    <div>of people recommended</div>
-    <br></br>
     <div>of customers recommended this product</div>
     <br></br>
-    <div>Size bar graph with sliding scale</div>
-    <br></br>
-    <div>Width bar graph with sliding scale</div>
-    <br></br>
-    <div>Comfort bar graph with sliding scale</div>
-    <br></br>
-    <div>Quality bar graph with sliding scale</div>
+    {qualities.map((quality) => (
+      <RecommendedItem quality={quality} reviewState={props.reviewState}/>
+    ))}
   </div>
-)
+  )
+}
 
 export default Recommended;

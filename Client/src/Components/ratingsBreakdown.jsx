@@ -1,40 +1,52 @@
 import React from 'react';
 import styled from 'styled-components';
+import RatingBar from './ratingBar.jsx';
+import { forEach } from 'underscore';
 
-const RatingsBreakdown = (props) => (
-  <div id='ratingsBreakdown'>
-    {/* ★★★★ */}
-    <Grid>
-      <div id='breakdownBox'>
-        <Row>
-          <Col size={1}>
-            <div id='totalrating'><strong>4.6</strong></div>
-          </Col>
-          <Col id='totalReview' size={1}>
-            <Row>★★★★☆</Row>
-            <Row>100 reviews</Row>
-          </Col>
-        </Row>
-      </div>
-    </Grid>
-      <div>
-        <br></br>
-        <div ><strong>RATING BREAKDOWN</strong></div>
-        <div>5 STARS with bar for number of ratings</div>
-        <br></br>
-        <div>4 STARS with bar for number of ratings</div>
-        <br></br>
-        <div>3 STARS with bar for number of ratings</div>
-        <br></br>
-        <div>2 STARS with bar for number of ratings</div>
-        <br></br>
-        <div>1 STARS with bar for number of ratings</div>
-        <br></br>
-        <br></br>
-      </div>
-    </div>
+const RatingsBreakdown = (props) => {
+  let allReviews = 0;
+  let totalRating = 0;
+  forEach(props.allReviews, review => {
+    allReviews++
+    totalRating+= review.value;
+  })
+  let avgRating = totalRating / allReviews;
+  if (avgRating.toString().length === 1) {
+    avgRating+= '.0';
+  }
 
-)
+
+  return (
+    <div id='ratingsBreakdown'>
+      {/* ★★★★ */}
+      <Grid>
+        <div id='breakdownBox'>
+          <Row>
+            <Col size={1}>
+              <div id='totalrating'><strong>{avgRating}</strong></div>
+            </Col>
+            <Col id='totalReview' size={1}>
+              <Row>★★★☆☆</Row>
+              <Row>{allReviews} reviews</Row>
+            </Col>
+          </Row>
+        </div>
+      </Grid>
+        <div>
+          <br></br>
+          <div ><strong>RATING BREAKDOWN</strong></div>
+          <br></br>
+            {stars.map((star) => (
+              <RatingBar
+                star={star}
+                allReviews={props.allReviews}
+                onStarRatingClick={props.onStarRatingClick}
+              />
+            ))}
+        </div>
+      </div>
+  )
+}
 
 const Grid = styled.div`
 
@@ -48,5 +60,8 @@ const Col = styled.div`
   flex: ${(props) => props.size};
 `;
 
+
+
+const stars = [5, 4, 3, 2, 1];
 
 export default RatingsBreakdown;
