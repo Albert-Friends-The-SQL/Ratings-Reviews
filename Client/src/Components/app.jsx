@@ -27,6 +27,7 @@ class App extends React.Component {
     this.onNewestClick = this.onNewestClick.bind(this);
     this.onHelpfulClickNumber = this.onHelpfulClickNumber.bind(this);
     this.onStarRatingClick = this.onStarRatingClick.bind(this);
+    this.onModalReviewSubmit = this.onModalReviewSubmit.bind(this);
   }
 
   onHelpfulClickNumber(e, id) {
@@ -113,6 +114,13 @@ class App extends React.Component {
     })
   }
 
+  // onModalReviewSubmit(obj) {
+  //   axios.post('/api/products/1337/reviews', obj)
+  //     .then((success) => {
+  //       console.log('Posted to the DB from client')
+  //     })
+  // }
+
   componentDidMount() {
     axios.get('/api/products/1337/reviews')
       .then((success) => {
@@ -158,6 +166,7 @@ class App extends React.Component {
                 onRelevantClick={this.onRelevantClick}
                 onNewestClick={this.onNewestClick}
                 onHelpfulClickNumber={this.onHelpfulClickNumber}
+                onModalReviewSubmit={this.onModalReviewSubmit}
               />
             </Col>
           </Row>
