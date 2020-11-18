@@ -21,6 +21,20 @@ const getReviews = (callback) => {
   });
 };
 
+const postReview = (obj, callback) => {
+  connection.query('INSERT INTO users (user, user_email) values (kennection, kennectionmail)')
+  .then((sucess) => (
+    console.log(success)
+    // connection.query(`SELECT id FROM users WHERE user = ${obj.user}`)
+  ))
+  .catch((err) => {
+    console.log(err)
+  })
+  .then((successer) => {
+    callback(null, successer)
+  })
+}
+
 const updateHelpful = (id, helpful, callback) => {
   if (helpful === 'yes') {
     connection.query(`UPDATE reviews SET helpfulY = helpfulY + 1 WHERE id = ${id}`, (err, success) => {
@@ -41,5 +55,7 @@ const updateHelpful = (id, helpful, callback) => {
   }
 }
 
-module.exports = { connection, getReviews, updateHelpful };
+module.exports = { connection, getReviews, updateHelpful, postReview };
 // export default connection;
+
+// INSERT INTO reviews (product_id, review_title, description, review_date, verified, size, width, comfort, quality, value, helpfulY, helpfulN, recommended, user_id) values)
