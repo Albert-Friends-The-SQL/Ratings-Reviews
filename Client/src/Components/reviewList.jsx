@@ -38,7 +38,7 @@ const ReviewList = (props) => {
       review_title: review_title,
       description: description,
       review_date: faker.date.recent().toString().split('').slice(0, 15).join(''),
-      verified: 'yes',
+      verified: 'Yes',
       size: sizeRating,
       width: widthRating,
       comfort: comfortRating,
