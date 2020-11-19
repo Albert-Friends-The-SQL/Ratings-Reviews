@@ -7,7 +7,7 @@ const Recommended = (props) => {
   let recommendedCount = 0;
   let allReviews = 0;
   forEach(props.reviewState.reviewData, review => {
-    if (review.recommended === 'yes') {
+    if (review.recommended === 'Yes') {
       recommendedCount+= 1;
     }
     allReviews++;
