@@ -22,17 +22,24 @@ const getReviews = (callback) => {
 };
 
 const postReview = (obj, callback) => {
-  connection.query('INSERT INTO users (user, user_email) values (kennection, kennectionmail)')
-  .then((sucess) => (
-    console.log(success)
-    // connection.query(`SELECT id FROM users WHERE user = ${obj.user}`)
-  ))
-  .catch((err) => {
-    console.log(err)
-  })
-  .then((successer) => {
-    callback(null, successer)
-  })
+  connection.query(`INSERT INTO users (user, user_email) values ('${obj.user}', '${obj.user_email}')`)
+    .then((success) => {
+      return connection.query(`SELECT id from users WHERE '${obj.user}' = users.user`)
+    })
+    .catch((err) => {
+      callback(err)
+    })
+    .then((id) => {
+      return connection.query(`INSERT INTO reviews (product_id, review_title, description, review_date, verified, size, width, comfort, quality, value, helpfulY, helpfulN, recommended, user_id) values (1337, '${obj.review_title}', '${obj.description}', '${obj.review_date}', '${obj.verified}', ${obj.size}, ${obj.width}, ${obj.comfort}, ${obj.quality}, ${obj.value}, ${obj.helpfulY}, ${obj.helpfulN}, '${obj.recommended}', ${id[0].id})`)
+    })
+    .catch((err) => {
+      console.log(err)
+      callback(err)
+    })
+    .then((reviewPost) => {
+      callback(null, reviewPost)
+    })
+
 }
 
 const updateHelpful = (id, helpful, callback) => {
@@ -56,6 +63,3 @@ const updateHelpful = (id, helpful, callback) => {
 }
 
 module.exports = { connection, getReviews, updateHelpful, postReview };
-// export default connection;
-
-// INSERT INTO reviews (product_id, review_title, description, review_date, verified, size, width, comfort, quality, value, helpfulY, helpfulN, recommended, user_id) values)
