@@ -49,14 +49,43 @@ const ReviewList = (props) => {
       helpfulN: 0
     });
 
+    onModalClose();
+    setUser('');
+    setUserEmail('');
+    setReviewTitle('');
+    setDescription('');
+    document.querySelector('#overallRating').selectedIndex = 0;
+    document.querySelector('#sizeRating').selectedIndex = 0;
+    document.querySelector('#comfortRating').selectedIndex = 0;
+    document.querySelector('#recommendedRating').selectedIndex = 0;
+    document.querySelector('#widthRating').selectedIndex = 0;
+    document.querySelector('#qualityRating').selectedIndex = 0;
+    document.querySelector('#user').value = "";
+    document.querySelector('#user_email').value = "";
+    document.querySelector('#review_title').value = "";
+    document.querySelector('#description').value = "";
   }
 
   return (
     <div>
-      <div id='filterBtns'>
-        <button id='filterBtn' onClick={props.onNewestClick}>NEWEST</button>
-        <button id='filterBtn' onClick={props.onHelpfulClick}>HELPFUL</button>
-        <button id='filterBtn' onClick={props.onRelevantClick}>RELEVANT</button>
+      <div id='filterBtns' style={{display:"flex"}}>
+        <NewestBtn
+          id='filterBtn'
+          onClick={props.onNewestClick}
+          state={props.reviewState}
+          >NEWEST
+        </NewestBtn>
+        <HelpfulBtn
+          id='filterBtn'
+          onClick={props.onHelpfulClick}
+          state={props.reviewState}
+          >HELPFUL
+        </HelpfulBtn>
+        <RelevantBtn id='filterBtn'
+         onClick={props.onRelevantClick}
+         state={props.reviewState}
+         >RELEVANT
+        </RelevantBtn>
       </div>
       {currentReviews.map((review) => (
         <ReviewListItem
@@ -65,19 +94,30 @@ const ReviewList = (props) => {
         />
       ))}
       <br></br>
-      <button
-        id='bottomReviewBtn'
-        onClick={props.onLoadMoreClick}>
-          LOAD MORE
-      </button>
-      <button id='bottomReviewBtn' onClick={onModalClick}>WRITE A REVIEW</button>
+      <div style={{display:"flex", justifyContent:"space-between"}}>
+        <button
+          id='bottomReviewBtn'
+          onClick={props.onLoadMoreClick}
+          style={{width:"49%", display:"flex", justifyContent:"space-between", letterSpacing:"2px", fontSize: "11px"}}
+          >
+            <div>LOAD MORE</div>
+            <div style={{color:"black", fontSize:"13px"}}>→</div>
+        </button>
+        <button
+          id='bottomReviewBtnWrite'
+          style={{backgroundColor:"black", color:"white", width:"49%", display:"flex", justifyContent:"space-between", letterSpacing:"2px", fontSize: "11px"}}
+          onClick={onModalClick}>
+            <div>WRITE A REVIEW</div>
+            <div style={{color:"white", fontSize:"13px"}}>→</div>
+        </button>
+      </div>
 
       <ModalBg id='ModalBg'>
         <Modal>
           <TitleH2>Write Your Review</TitleH2>
           <LeftModal>
-            Your Overall Rating
-            <LeftModalRating>Please select</LeftModalRating>
+            <strong style={{fontFamily:"adineue PRO KZ Bold"}}>Your Overall Rating</strong>
+            <LeftModalRating style={{fontSize: "13px"}}>Please select</LeftModalRating>
             <LeftModalRating>
               <SelectRating id='overallRating'>
                 <option value="0">Select rating:</option>
@@ -89,7 +129,7 @@ const ReviewList = (props) => {
               </SelectRating>
             </LeftModalRating>
             <br></br>
-            <LeftModalRating>Size</LeftModalRating>
+            <LeftModalRating style={{fontFamily:"adineue PRO KZ Bold"}}>Size</LeftModalRating>
             <LeftModalRating>
             <SelectRating id='sizeRating'>
                 <option value="0">Select rating:</option>
@@ -101,7 +141,7 @@ const ReviewList = (props) => {
               </SelectRating>
             </LeftModalRating>
             <br></br>
-            <LeftModalRating>Comfort</LeftModalRating>
+            <LeftModalRating style={{fontFamily:"adineue PRO KZ Bold"}}>Comfort</LeftModalRating>
             <LeftModalRating>
               <SelectRating id='comfortRating'>
                   <option value="0">Select rating:</option>
@@ -117,8 +157,8 @@ const ReviewList = (props) => {
           </LeftModal>
 
           <RightModal>
-            Would You Recommend This Product?
-            <RightModalRating>Please select</RightModalRating>
+            <strong style={{fontFamily:"adineue PRO KZ Bold"}}>Would You Recommend This Product?</strong>
+            <RightModalRating style={{fontSize: "13px"}}>Please select</RightModalRating>
             <RightModalRating>
             <SelectRating id='recommendedRating'>
                 <option value="0">Select:</option>
@@ -127,7 +167,7 @@ const ReviewList = (props) => {
               </SelectRating>
             </RightModalRating>
             <br></br>
-            <RightModalRating>Width</RightModalRating>
+            <RightModalRating style={{fontFamily:"adineue PRO KZ Bold"}}>Width</RightModalRating>
             <RightModalRating>
             <SelectRating id='widthRating'>
                   <option value="0">Select rating:</option>
@@ -139,7 +179,7 @@ const ReviewList = (props) => {
                 </SelectRating>
             </RightModalRating>
             <br></br>
-            <RightModalRating>Quality</RightModalRating>
+            <RightModalRating style={{fontFamily:"adineue PRO KZ Bold"}}>Quality</RightModalRating>
             <RightModalRating>
             <SelectRating id='qualityRating'>
                   <option value="0">Select rating:</option>
@@ -154,16 +194,27 @@ const ReviewList = (props) => {
           <PageBorder></PageBorder>
 
           <BottomModal>
-            Your Review
+            <strong style={{fontFamily:"adineue PRO KZ Bold"}}>Your Review</strong>
             <BottomModalItems>
-              <input id='review_title' onChange={(e) => setReviewTitle(e.target.value)} style={{width:"90%"}} type='text' placeholder='Summary'></input>
+              <input
+                id='review_title'
+                onChange={(e) => setReviewTitle(e.target.value)}
+                style={{width:"90%"}}
+                type='text'
+                placeholder='Summary'>
+              </input>
             </BottomModalItems>
             <BottomModalItems style={{fontSize:"13px"}}>
               What’s your opinion in one sentence? Example: Best purchase ever.
             </BottomModalItems>
             <br></br>
             <BottomModalItems>
-              <textarea id='description' onChange={(e) => setDescription(e.target.value)} style={{width:"90%", height: "50px"}} placeholder='Your Review'></textarea>
+              <textarea
+                id='description'
+                onChange={(e) => setDescription(e.target.value)}
+                style={{width:"90%", height: "50px"}}
+                placeholder='Your Review'>
+              </textarea>
             </BottomModalItems>
             <BottomModalItems style={{fontSize:"13px"}}>
               Tell other people more about the product. What about the quality? Or the comfort?
@@ -172,139 +223,193 @@ const ReviewList = (props) => {
             <BottomModalItems>Personal Information</BottomModalItems>
             <br></br>
             <BottomModalItems>
-              <input id='user' onChange={(e) => setUser(e.target.value)} style={{width:"45%"}} type='text' placeholder='Nickname'></input>
-              <input id='user_email' onChange={(e) => setUserEmail(e.target.value)} style={{width:"45%"}} type='text' placeholder='Email'></input>
+              <input id='user'
+                onChange={(e) => setUser(e.target.value)}
+                style={{width:"45%"}}
+                type='text'
+                placeholder='Nickname'>
+              </input>
+              <input id='user_email'
+                onChange={(e) => setUserEmail(e.target.value)}
+                style={{width:"45%"}}
+                type='text'
+                placeholder='Email'>
+               </input>
             </BottomModalItems>
             <BottomModalItems style={{fontSize:"13px"}}>
               Example: Jack27. Be mindful of your own privacy, don’t use your full name or email address.
             </BottomModalItems>
             </BottomModal>
 
-          <WriteReview onClick={onModalSubmit}>Write Your Review</WriteReview>
+          <WriteReview
+            onClick={onModalSubmit}
+          >
+            <strong style={{textAlign:"center"}}>
+              Write Your Review
+            </strong>
+          </WriteReview>
           <SpanX id='ModalClose' onClick={onModalClose}>X</SpanX>
         </Modal>
       </ModalBg>
     </div>
   )
+
 }
 
-export default ReviewList;
-
 const ModalBg = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0,0,0,.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.5s;
+position: fixed;
+width: 100%;
+height: 100vh;
+background-color: rgba(0,0,0,.5);
+display: flex;
+justify-content: center;
+align-items: center;
+top: 0;
+left: 0;
+visibility: hidden;
+opacity: 0;
+transition: visibility 0s, opacity 0.5s;
 `;
 
 const ModalBgActice = styled.div`
-  visiblity; visible;
-  opacity: 1;
+visiblity; visible;
+opacity: 1;
 `;
 
 const Modal = styled.div`
-  position: relative;
-  background-color: #fff;
-  height: 70%;
-  width: 60%;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  /* justify-content: space-around;
-  align-items: center;
-  flex-direction: column; */
+position: relative;
+background-color: #fff;
+height: 60%;
+width: 75%;
+display: flex;
+flex-wrap: wrap;
+padding: 10px;
 `;
 
 const ModalBtn = styled.div`
-  padding: 10px 30px;
-  background-color: #2ada71
-  color: black;
-  border:none;
+padding: 10px 30px;
+background-color: #2ada71
+color: black;
+border:none;
 `;
 
 const SpanX = styled.span`
-  position: absolute;
-  color: #2ada71;
-  top: 10px;
-  right: 10px;
-  font-weight: bold;
-  cursor: pointer;
+position: absolute;
+color: #2ada71;
+top: 10px;
+right: 10px;
+font-weight: bold;
+cursor: pointer;
 `;
 
 const LeftModal = styled.div`
-  height: 20%;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
+height: 20%;
+width: 50%;
+display: flex;
+flex-direction: column;
+margin-bottom: 30px;
 `;
 
 const RightModal = styled.div`
-  height: 20%;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
+height: 20%;
+width: 50%;
+display: flex;
+flex-direction: column;
 `;
 
 const BottomModal = styled.div`
-  height: auto;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+height: auto;
+width: 100%;
+display: flex;
+flex-wrap: wrap;
 `;
 
+
 const BottomModalItems = styled.div`
-  width: 100%;
+font-family: AdihausDIN;
+width: 100%;
 `;
 
 const LeftModalRating = styled.div`
-  /* flex-direction: column; */
+font-family: AdihausDIN;
 `;
 
 const RightModalRating = styled.div`
-  /* flex-direction: column; */
+font-family: AdihausDIN;
 `;
 
 
 const TitleH2 = styled.div`
-  width: 100%;
-  height: 1%;
-  font-size: 50px;
-  margin-bottom: 20px;
-  /* color: #84dfa9; */
-  color: #2ada71;
+font-family: adineue PRO KZ Bold;
+width: 100%;
+height: 1%;
+font-size: 50px;
+margin-bottom: 20px;
+/* color: #767677; */
+/* color: #2ada71; */
+color: black;
 `;
 
 const PageBorder = styled.div`
-  position: absolute;
-  top: 44%;
-  left: 3%;
-  background-color: #d8d8d8;
-  height: 2px;
-  width: 90%;
+position: absolute;
+top: 44%;
+left: 3%;
+background-color: #d8d8d8;
+height: 2px;
+width: 90%;
 `;
 
 const WriteReview = styled.div`
-  width: 200px;
-  background-color: #2ada71;
-  height 19px;
-  color: white;
-  border: 2px solid #2ada71;
-  border-radius: 14px;
-  text-align: center;
-  vertical-align: center;
-  margin-top: 20px;
-  cursor: pointer;
+font-family: AdihausDIN;
+width: 200px;
+/* background-color: #2ada71; */
+background-color: black;
+height 20px;
+color: white;
+border: 2px solid black;
+/* border: 2px solid #2ada71; */
+/* border-radius: 14px; */
+text-align: center;
+vertical-align: center;
+margin-top: 21px;
+cursor: pointer;
 `;
 
 const SelectRating = styled.select`
 
 `;
+
+const NewestBtn = styled.div`
+  background-color: rgb(255, 255, 255);
+  color: #767677;
+  width: 33%;
+  border: .5px solid black;
+  border-bottom: ${(props) => props.state.newest ? "3px solid black" : ".5px solid black"};
+  padding: 10px;
+  font-family: AdihausDIN;
+  cursor: pointer;
+`;
+
+const HelpfulBtn = styled.div`
+background-color: rgb(255, 255, 255);
+color: #767677;
+width: 33%;
+border: .5px solid black;
+border-bottom: ${(props) => props.state.helpful ? "3px solid black" : ".5px solid black"};
+padding: 10px;
+font-family: AdihausDIN;
+cursor: pointer;
+`;
+
+const RelevantBtn = styled.div`
+background-color: rgb(255, 255, 255);
+color: #767677;
+width: 33%;
+border: .5px solid black;
+border-bottom: ${(props) => props.state.relevant ? "3px solid black" : ".5px solid black"};
+padding: 10px;
+font-family: AdihausDIN;
+cursor: pointer;
+`;
+
+export default ReviewList;
