@@ -38,9 +38,13 @@ class App extends React.Component {
           return axios.get('/api/products/1337/reviews')
         })
         .then((success) => {
+        let allData = success.data.slice();
+        allData.sort((a, b) => {
+          return b.id - a.id;
+        })
           this.setState({
-            reviewData: success.data,
-            displayData: success.data,
+            reviewData: allData,
+            displayData: allData,
             clickedHelpful: true
           })
 
@@ -114,20 +118,38 @@ class App extends React.Component {
     })
   }
 
-  // onModalReviewSubmit(obj) {
-  //   axios.post('/api/products/1337/reviews', obj)
-  //     .then((success) => {
-  //       console.log('Posted to the DB from client')
-  //     })
-  // }
+  onModalReviewSubmit(obj) {
+    axios.post('/api/products/1337/reviews', obj)
+      .then((success) => {
+        return axios.get('/api/products/1337/reviews')
+      })
+      .then((allReviews) => {
+        let allData = allReviews.data.slice();
+        allData.sort((a, b) => {
+          return b.id - a.id;
+        })
+
+        this.setState({
+          reviewData: allData,
+          displayData: allData
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+  }
 
   componentDidMount() {
     axios.get('/api/products/1337/reviews')
       .then((success) => {
-        console.log('SUCCESS', success.data)
+        let allData = success.data.slice();
+        allData.sort((a, b) => {
+          return b.id - a.id;
+        })
         this.setState({
-          reviewData: success.data,
-          displayData: success.data
+          reviewData: allData,
+          displayData: allData
         })
       })
       .catch((err) => (
@@ -180,6 +202,8 @@ class App extends React.Component {
 const Title = styled.h2`
   color: Black;
   font-size: 30px;
+  font-family: adineue PRO KZ Bold;
+  margin-bottom: 7px;
 `;
 
 const Grid = styled.div`
