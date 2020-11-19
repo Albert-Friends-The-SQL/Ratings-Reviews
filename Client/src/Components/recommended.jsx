@@ -3,7 +3,6 @@ import RecommendedItem from './recommendedItem.jsx';
 import { forEach } from 'underscore';
 
 const Recommended = (props) => {
-  console.log('reco props', props)
   let recommendedCount = 0;
   let allReviews = 0;
   forEach(props.reviewState.reviewData, review => {
