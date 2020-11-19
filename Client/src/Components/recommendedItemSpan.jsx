@@ -2,7 +2,7 @@ import React from 'react';
 
 const SpanQuality = (props) => {
   return (
-  <span>{props.quality}</span>
+  <span style={{fontFamily: "AdihausDIN"}}>{props.quality}</span>
   )
 }
 

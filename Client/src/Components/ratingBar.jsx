@@ -16,7 +16,9 @@ const RatingBar = (props) => {
   return (
     <div>
     <RatingBox>
-      <StarNumber onClick={() => props.onStarRatingClick(props.star)}>{props.star} STARS</StarNumber>
+      <StarNumber
+      id = 'starNumber'
+      onClick={() => props.onStarRatingClick(props.star)}>{props.star} STARS</StarNumber>
       <TotalReviews>{count}</TotalReviews>
       <BarBorder>
         <BarProgress style={{width: `${overallPercentage}%`}}></BarProgress>
@@ -32,12 +34,17 @@ const RatingBox = styled.div`
 `;
 
 const StarNumber = styled.div`
-  font-size: 15px;
+  font-size: 14px;
   text-decoration: underline;
+  font-family: AdihausDIN;
+  cursor: pointer;
+  width: 53px;
+  font-weight: 700;
+  margin-left: 5px;
 `;
 
 const BarBorder = styled.div`
-  background-color: #b8b8b8;
+  background-color: #767677;
   height: 4px
   border-radius: 15px;
   width:155px;
@@ -57,7 +64,8 @@ const TotalReviews = styled.div`
   float: right;
   margin: -14px 15px 5px 6px;
   line-height: 10px;
-  font-size: 13px
+  font-family: AdihausDIN;
+  font-size: 11px
 `;
 
 export default RatingBar;

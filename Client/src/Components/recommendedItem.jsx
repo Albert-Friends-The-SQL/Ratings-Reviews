@@ -36,7 +36,7 @@ const ComparisonBar = styled.div`
   margin-top: 4px;
   width: 250px;
   height: 4px;
-  background-color: #e3e3e3;
+  background-color: #767677;
   border-radius: 5px;
 `;
 
@@ -78,6 +78,7 @@ const ComparisonBarThirdBreak = styled.div`
 `;
 
 const Quality = styled.div`
+  font-family: AdihausDIN;
   font-size: 13px;
 `;
 

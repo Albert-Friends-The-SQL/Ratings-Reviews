@@ -26,6 +26,7 @@ CREATE TABLE reviews (
   value int NOT NULL,
   helpfulY int NOT NULL,
   helpfulN int NOT NULL,
+  recommended varchar(16),
   user_id int,
   PRIMARY KEY (id)
 );
