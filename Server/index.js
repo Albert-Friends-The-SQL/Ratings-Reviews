@@ -19,15 +19,15 @@ App.get('/api/products/1337/reviews', (req, res) => {
   });
 });
 
-// App.post('/api/products/1337/reviews', (req, res) => {
-//   db.postReview(req.body, (err, success) => {
-//     if (err) {
-//       res.status(404).send('Error posting review to DB')
-//     } else {
-//       res.status(200).send(success);
-//     }
-//   })
-// })
+App.post('/api/products/1337/reviews', (req, res) => {
+  db.postReview(req.body, (err, success) => {
+    if (err) {
+      res.status(404).send('Error posting review to DB')
+    } else {
+      res.status(200).send(success);
+    }
+  })
+})
 
 App.put('/api/products/1337/reviews', (req, res) => {
   console.log(req.body)
