@@ -1,3 +1,7 @@
+@import url(//db.onlinewebfonts.com/c/36b94f058581f2e0ace7e0017351d5b6?family=adineue+PRO+KZ+Bold);
+@import url(//db.onlinewebfonts.com/c/c0cd6ec8ce6d2bbd315a13b62ed13550?family=AdihausDIN);
+@import url(//db.onlinewebfonts.com/c/c58afc13c9cbfe8427cc8c9b640cc31d?family=Stars2);
+
 /* Review List Items */
 th {
   text-align: left;
@@ -17,31 +21,44 @@ th {
 #reviewItemHelpfulY {
   position: absolute;
   left: 450px;
-  margin-top: 8px
+  margin-top: 8px;
+  font-family: AdihausDIN;
+  font-size: 12px;
 }
 
 #reviewItemHelpfulN {
   position: absolute;
   left: 510px;
-  margin-top: 8px
+  margin-top: 8px;
+  font-family: AdihausDIN;
+  font-size: 12px;
+}
+
+#tableDataYLabel:hover {
+  background-color: black;
+  color: white;
 }
 
 
 /* Filter Buttons */
 #filterBtns {
   text-align: center;
+  font-size: 13px;
 }
 
-#filterBtn {
+/* #filterBtn {
   background-color: rgb(255, 255, 255);
+  color: #767677;
   width: 33%;
   border: .5px solid black;
-  padding: 15px;
-
-}
+  padding: 10px;
+  font-family: AdihausDIN;
+  cursor: pointer;
+} */
 
 #filterBtn:hover {
-  color: blue;
+  color: black;
+  font-weight: bold;
 }
 
 /* Bottom Review Buttons */
@@ -49,14 +66,54 @@ th {
   background-color: rgb(255, 255, 255);
   text-align: left;
   width: 50%;
-  padding: 15px;
+  padding: 12px;
   border: .5px solid black;
+  font-family: AdihausDIN;
+  cursor: pointer;
 }
 
 #bottomReviewBtn:hover {
-  color:blue;
+  font-weight: bold;
 }
 
+#bottomReviewBtnWrite {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  text-align: left;
+  width: 50%;
+  padding: 12px;
+  border: .5px solid black;
+  font-family: AdihausDIN;
+  cursor: pointer;
+}
+
+#bottomReviewBtnWrite::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  bottom: -4px;
+  height: 10px;
+  left: 5px;
+  width: 99%;
+}
+
+#bottomReviewBtnWrite::after {
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  height: 40px;
+  right: -4px;
+  top: 3px;
+  width: 3px;
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+#bottomReviewBtnWrite:hover {
+  font-weight: bold;
+}
 
 /* Ratings Breakdown */
 #ratingsBreakdown {
@@ -77,7 +134,12 @@ th {
 #totalReview {
   font-size: 13px;
   text-align: left;
-  margin-top: 13px;
+  margin-top: 20px;
+}
+
+#starNumber:hover {
+  background-color: black;
+  color: #fff;
 }
 
 /* Recommended Section */
@@ -90,3 +152,122 @@ th {
   visibility: visible;
   opacity: 1;
 }
+
+/* CheckMark */
+#checkmark {
+  display:inline-block;
+  width: 10px;
+  height:14px;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  margin: 8px;
+}
+
+#checkmark_stem {
+  position: absolute;
+  width:1px;
+  height:13px;
+  background-color:black;
+  left:11px;
+  top:7px;
+}
+
+#checkmark_kick {
+  position: absolute;
+  width:5px;
+  height:1px;
+  background-color: black;
+  left:7px;
+  top:20px;
+}
+
+/* Star Rating */
+/* #star-ratings-sprite {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  font-size: 0;
+  height: 21px;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -400em;
+  width: 110px;
+  margin: 0 auto;
+}
+
+#star-ratings-sprite-rating {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  background-position: 0 100%;
+  float: left;
+  height: 21px;
+  display:block;
+} */
+
+#rating {
+  display: inline-block;
+  unicode-bidi: bidi-override;
+  color: rgb(215, 215, 215);
+  font-size: 25px;
+  height: 18px;
+  width: auto;
+  margin: 0;
+  position: relative;
+  padding: 0;
+  font-size: 12px;
+
+}
+
+#rating-upper {
+  color: black;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+#rating-lower {
+  padding: 0;
+  display: flex;
+  z-index: 0;
+}
+
+/* Adidas Font */
+@font-face {
+  font-family: "adineue PRO KZ Bold";
+  src: url("//db.onlinewebfonts.com/t/36b94f058581f2e0ace7e0017351d5b6.eot");
+  src: url("//db.onlinewebfonts.com/t/36b94f058581f2e0ace7e0017351d5b6.eot?#iefix") format("embedded-opentype"),
+  url("//db.onlinewebfonts.com/t/36b94f058581f2e0ace7e0017351d5b6.woff2")
+  format("woff2"),
+  url("//db.onlinewebfonts.com/t/36b94f058581f2e0ace7e0017351d5b6.woff")
+  format("woff"),
+  url("//db.onlinewebfonts.com/t/36b94f058581f2e0ace7e0017351d5b6.ttf")
+  format("truetype"),
+  url("//db.onlinewebfonts.com/t/36b94f058581f2e0ace7e0017351d5b6.svg#adineue PRO KZ Bold")
+  format("svg"); }
+
+@font-face {font-family: "AdihausDIN";
+  src: url("//db.onlinewebfonts.com/t/c0cd6ec8ce6d2bbd315a13b62ed13550.eot");
+  src: url("//db.onlinewebfonts.com/t/c0cd6ec8ce6d2bbd315a13b62ed13550.eot?#iefix")
+  format("embedded-opentype"),
+  url("//db.onlinewebfonts.com/t/c0cd6ec8ce6d2bbd315a13b62ed13550.woff2")
+  format("woff2"),
+  url("//db.onlinewebfonts.com/t/c0cd6ec8ce6d2bbd315a13b62ed13550.woff")
+  format("woff"),
+  url("//db.onlinewebfonts.com/t/c0cd6ec8ce6d2bbd315a13b62ed13550.ttf")
+  format("truetype"),
+  url("//db.onlinewebfonts.com/t/c0cd6ec8ce6d2bbd315a13b62ed13550.svg#AdihausDIN") format("svg"); }
+
+@font-face {font-family: "Stars2";
+  src: url("//db.onlinewebfonts.com/t/c58afc13c9cbfe8427cc8c9b640cc31d.eot");
+  src: url("//db.onlinewebfonts.com/t/c58afc13c9cbfe8427cc8c9b640cc31d.eot?#iefix")
+  format("embedded-opentype"),
+  url("//db.onlinewebfonts.com/t/c58afc13c9cbfe8427cc8c9b640cc31d.woff2")
+  format("woff2"),
+  url("//db.onlinewebfonts.com/t/c58afc13c9cbfe8427cc8c9b640cc31d.woff")
+  format("woff"),
+  url("//db.onlinewebfonts.com/t/c58afc13c9cbfe8427cc8c9b640cc31d.ttf")
+  format("truetype"),
+  url("//db.onlinewebfonts.com/t/c58afc13c9cbfe8427cc8c9b640cc31d.svg#Stars2")
+  format("svg"); }
