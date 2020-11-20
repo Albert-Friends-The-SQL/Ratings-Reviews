@@ -20,7 +20,7 @@ const RatingsBreakdown = (props) => {
         <div id='breakdownBox'>
           <Row>
             <Col size={1}>
-              <div id='totalrating' style={{fontFamily:"adineue PRO KZ Bold", marginTop:"10px"}}><strong>{avgRating}</strong></div>
+              <div id='totalrating' style={{fontFamily:"adineue PRO KZ Bold", marginTop:"10px", letterSpacing:"4px"}}><strong>{avgRating}</strong></div>
             </Col>
             <Col id='totalReview' size={1}>
               <Row>
@@ -41,7 +41,10 @@ const RatingsBreakdown = (props) => {
                 </div>
             </div>
               </Row>
-              <Row style={{fontFamily:"AdihausDIN"}}>{allReviews} Reviews</Row>
+              <Row style={{fontFamily:"AdihausDIN"}}>
+                <div style={{marginRight: "2px", fontFamily:"adineue PRO KZ Bold", fontSize:"14px", marginTop:"2px"}}>{allReviews}</div>
+                <div>Reviews</div>
+              </Row>
             </Col>
           </Row>
         </div>

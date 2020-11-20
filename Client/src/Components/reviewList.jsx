@@ -37,8 +37,8 @@ const ReviewList = (props) => {
       product_id: 1337,
       review_title: review_title,
       description: description,
-      review_date: faker.date.recent().toString().split('').slice(0, 15).join(''),
-      verified: 'yes',
+      review_date: faker.date.soon().toString().split('').slice(0, 15).join(''),
+      verified: 'Yes',
       size: sizeRating,
       width: widthRating,
       comfort: comfortRating,
@@ -100,14 +100,14 @@ const ReviewList = (props) => {
           onClick={props.onLoadMoreClick}
           style={{width:"49%", display:"flex", justifyContent:"space-between", letterSpacing:"2px", fontSize: "11px"}}
           >
-            <div>LOAD MORE</div>
+            <div className='loadmore'>LOAD MORE</div>
             <div style={{color:"black", fontSize:"13px"}}>→</div>
         </button>
         <button
           id='bottomReviewBtnWrite'
           style={{backgroundColor:"black", color:"white", width:"49%", display:"flex", justifyContent:"space-between", letterSpacing:"2px", fontSize: "11px"}}
           onClick={onModalClick}>
-            <div>WRITE A REVIEW</div>
+            <div class='writeareview'>WRITE A REVIEW</div>
             <div style={{color:"white", fontSize:"13px"}}>→</div>
         </button>
       </div>
@@ -381,7 +381,8 @@ const SelectRating = styled.select`
 
 const NewestBtn = styled.div`
   background-color: rgb(255, 255, 255);
-  color: #767677;
+  /* color: #767677; */
+  color: ${(props) => props.state.newest ? "black" : "#767677"};
   width: 33%;
   border: .5px solid black;
   border-bottom: ${(props) => props.state.newest ? "3px solid black" : ".5px solid black"};
@@ -392,7 +393,8 @@ const NewestBtn = styled.div`
 
 const HelpfulBtn = styled.div`
 background-color: rgb(255, 255, 255);
-color: #767677;
+/* color: #767677; */
+color: ${(props) => props.state.helpful ? "black" : "#767677"};
 width: 33%;
 border: .5px solid black;
 border-bottom: ${(props) => props.state.helpful ? "3px solid black" : ".5px solid black"};
@@ -403,7 +405,8 @@ cursor: pointer;
 
 const RelevantBtn = styled.div`
 background-color: rgb(255, 255, 255);
-color: #767677;
+/* color: #767677; */
+color: ${(props) => props.state.relevant ? "black" : "#767677"};
 width: 33%;
 border: .5px solid black;
 border-bottom: ${(props) => props.state.relevant ? "3px solid black" : ".5px solid black"};

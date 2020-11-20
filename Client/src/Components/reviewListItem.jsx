@@ -79,6 +79,7 @@ const TableDataYLabel = styled.td`
 
 const TableDataY = styled.td`
   font-family: AdihausDIN;
+  color: #767677;
   font-size: 12px;
   position: absolute;
   left: 445px;
@@ -99,6 +100,7 @@ const TableDataNLabel = styled.td`
 
 const TableDataN = styled.td`
   font-family: AdihausDIN;
+  color: #767677;
   font-size: 12px;
   position: absolute;
   left: 500px;

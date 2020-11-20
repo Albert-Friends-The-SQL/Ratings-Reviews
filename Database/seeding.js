@@ -5,6 +5,7 @@ const db = require('./index');
 const reviewBuilder = () => {
   const ratingRange = { min: 1, max: 5 };
   const helpfulRange = { min: 0, max: 50 };
+  const recommended = faker.random.boolean();
 
   return {
     user_email: faker.internet.email(),
@@ -21,11 +22,12 @@ const reviewBuilder = () => {
       value: faker.random.number(ratingRange),
       helpfulY: faker.random.number(helpfulRange),
       helpfulN: faker.random.number(helpfulRange),
+      recommended: `${recommended ? 'Yes' : 'No'}`
     },
   };
 };
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 200; i++) {
   const newReview = reviewBuilder();
   db.connection.query(`INSERT INTO users (
   user,
@@ -53,7 +55,7 @@ for (let i = 0; i < 100; i++) {
         '${newReview.review_title}',
         '${newReview.description}',
         '${newReview.review_date}',
-        'yes',
+        'Yes',
         ${newReview.ratings.size},
         ${newReview.ratings.width},
         ${newReview.ratings.comfort},
@@ -61,7 +63,7 @@ for (let i = 0; i < 100; i++) {
         ${newReview.ratings.value},
         ${newReview.ratings.helpfulY},
         ${newReview.ratings.helpfulN},
-        'yes',
+        '${newReview.ratings.recommended}',
         ${i + 1})`)
     ))
     .then(() => {

@@ -3,11 +3,10 @@ import RecommendedItem from './recommendedItem.jsx';
 import { forEach } from 'underscore';
 
 const Recommended = (props) => {
-  console.log('reco props', props)
   let recommendedCount = 0;
   let allReviews = 0;
   forEach(props.reviewState.reviewData, review => {
-    if (review.recommended === 'yes') {
+    if (review.recommended === 'Yes') {
       recommendedCount+= 1;
     }
     allReviews++;
@@ -20,7 +19,7 @@ const Recommended = (props) => {
   <div>
     <div
       id='recommendedPercent'
-      style={{fontFamily: "adineue PRO KZ Bold", fontSize:"45px", height:"40px"}}
+      style={{fontFamily: "adineue PRO KZ Bold", fontSize:"50px", height:"40px", marginBottom:"7px", marginTop:"10px"}}
     >
       <strong>
         {overallPercentage}%

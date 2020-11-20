@@ -160,7 +160,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Title>Ratings & Reviews</Title>
+        <Title>RATINGS & REVIEWS</Title>
         <Grid>
           <Row>
             <Col
@@ -173,7 +173,6 @@ class App extends React.Component {
                   onStarRatingClick={this.onStarRatingClick}
                 />
               </Row>
-              <br></br>
               <Row>
                 <Recommended
                   reviewState={this.state}
@@ -201,9 +200,10 @@ class App extends React.Component {
 //Styled Components
 const Title = styled.h2`
   color: Black;
-  font-size: 30px;
+  font-size: 26px;
   font-family: adineue PRO KZ Bold;
   margin-bottom: 7px;
+  letter-spacing: 1px;
 `;
 
 const Grid = styled.div`
