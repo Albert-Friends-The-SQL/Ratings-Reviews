@@ -13,12 +13,14 @@ const ReviewList = (props) => {
   const currentReviews = props.reviewState.displayData.slice(0, props.reviewState.reviewCount);
 
   const onModalClick = () => {
-    const modalBg = document.querySelector('#ModalBg');
+    const modalBg = document.querySelector('.ModalBg');
     modalBg.classList.add('ModalBgActive');
+    modalBg.classList.remove('ModalBg');
   }
 
   const onModalClose = () => {
-    const modalBg = document.querySelector('#ModalBg');
+    const modalBg = document.querySelector('.ModalBgActive');
+    modalBg.classList.add('ModalBg');
     modalBg.classList.remove('ModalBgActive');
   }
 
@@ -112,7 +114,7 @@ const ReviewList = (props) => {
         </button>
       </div>
 
-      <ModalBg id='ModalBg'>
+      <div class='ModalBg'>
         <Modal>
           <TitleH2>Write Your Review</TitleH2>
           <LeftModal>
@@ -250,14 +252,14 @@ const ReviewList = (props) => {
           </WriteReview>
           <SpanX id='ModalClose' onClick={onModalClose}>X</SpanX>
         </Modal>
-      </ModalBg>
+      </div>
     </div>
   )
 
 }
 
 const ModalBg = styled.div`
-position: fixed;
+/* position: fixed;
 width: 100%;
 height: 100vh;
 background-color: rgba(0,0,0,.5);
@@ -268,7 +270,7 @@ top: 0;
 left: 0;
 visibility: hidden;
 opacity: 0;
-transition: visibility 0s, opacity 0.5s;
+transition: visibility 0s, opacity 0.5s; */
 `;
 
 const ModalBgActice = styled.div`
