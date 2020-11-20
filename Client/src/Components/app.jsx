@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import RatingsBreakdown from './ratingsBreakdown.jsx';
 import Recommended from './recommended.jsx'
 import { shuffle, forEach } from 'underscore';
+import '../../Dist/styles.css';
 
 
 class App extends React.Component {
