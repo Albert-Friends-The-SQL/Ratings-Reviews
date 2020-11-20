@@ -7,7 +7,7 @@
     "start": "nodemon server/index.js",
     "watch": "webpack -d --watch",
     "seed": "Database/seeding.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -25,16 +25,18 @@
     "@babel/preset-react": "^7.12.5",
     "axios": "^0.21.0",
     "babel-loader": "^8.2.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "express": "^4.17.1",
     "faker": "^5.1.0",
+    "jest": "^26.6.3",
     "jquery": "^3.5.1",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.6",
-    "popper": "^1.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-test-renderer": "^17.0.1",
     "styled-components": "^5.2.1",
-    "styled-components-grid": "^2.2.2",
     "underscore": "^1.11.0",
     "webpack": "^2.7.0",
     "webpack-cli": "^4.2.0"
