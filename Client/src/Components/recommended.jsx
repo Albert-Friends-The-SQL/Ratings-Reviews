@@ -19,7 +19,7 @@ const Recommended = (props) => {
   <div>
     <div
       id='recommendedPercent'
-      style={{fontFamily: "adineue PRO KZ Bold", fontSize:"45px", height:"40px"}}
+      style={{fontFamily: "adineue PRO KZ Bold", fontSize:"50px", height:"40px", marginBottom:"7px", marginTop:"10px"}}
     >
       <strong>
         {overallPercentage}%
