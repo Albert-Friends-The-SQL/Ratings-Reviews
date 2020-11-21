@@ -34,9 +34,9 @@ class App extends React.Component {
   onHelpfulClickNumber(e, id) {
     const reviewId = id
       if (!this.state.clickedHelpful) {
-      axios.put('/api/products/1337/reviews', {id: reviewId, helpful: e.target.innerText})
+      axios.put('/api/reviews', {id: reviewId, helpful: e.target.innerText})
         .then((success) => {
-          return axios.get('/api/products/1337/reviews')
+          return axios.get('/api/reviews')
         })
         .then((success) => {
         let allData = success.data.slice();
@@ -120,9 +120,9 @@ class App extends React.Component {
   }
 
   onModalReviewSubmit(obj) {
-    axios.post('/api/products/1337/reviews', obj)
+    axios.post('/api/reviews', obj)
       .then((success) => {
-        return axios.get('/api/products/1337/reviews')
+        return axios.get('/api/reviews')
       })
       .then((allReviews) => {
         let allData = allReviews.data.slice();
@@ -157,7 +157,7 @@ class App extends React.Component {
     //   console.log(err)
     // ))
 
-    axios.get('/api/products/1337/reviews')
+    axios.get('/api/reviews')
       .then((success) => {
         let allData = success.data.slice();
         allData.sort((a, b) => {

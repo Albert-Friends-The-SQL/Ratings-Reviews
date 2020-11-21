@@ -9,7 +9,7 @@ App.get('/', (req, res) => (
   console.log('Hi there, you conencted to the server')
 ));
 
-App.get('/api/products/1337/reviews', (req, res) => {
+App.get('/api/reviews', (req, res) => {
   db.getReviews((err, success) => {
     if (err) {
       res.status(404).send('Error retreiving reviews');
@@ -19,7 +19,7 @@ App.get('/api/products/1337/reviews', (req, res) => {
   });
 });
 
-App.post('/api/products/1337/reviews', (req, res) => {
+App.post('/api/reviews', (req, res) => {
   db.postReview(req.body, (err, success) => {
     if (err) {
       res.status(404).send('Error posting review to DB')
@@ -29,7 +29,7 @@ App.post('/api/products/1337/reviews', (req, res) => {
   })
 })
 
-App.put('/api/products/1337/reviews', (req, res) => {
+App.put('/api/reviews', (req, res) => {
   console.log(req.body)
   db.updateHelpful(req.body.id, req.body.helpful.toLowerCase(), (err, success) => {
     if (err) {

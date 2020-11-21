@@ -6,6 +6,7 @@ console.log(SRC_DIR);
 console.log(DIST_DIR);
 
 module.exports = {
+  mode: 'development',
   entry: `${SRC_DIR}/index.jsx`,
   module: {
     rules: [
