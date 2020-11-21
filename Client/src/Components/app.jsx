@@ -142,6 +142,21 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    // axios.get('ec2-18-216-121-232.us-east-2.compute.amazonaws.com')
+    // .then((success) => {
+    //   let allData = success.data.slice();
+    //   allData.sort((a, b) => {
+    //     return b.id - a.id;
+    //   })
+    //   this.setState({
+    //     reviewData: allData,
+    //     displayData: allData
+    //   })
+    // })
+    // .catch((err) => (
+    //   console.log(err)
+    // ))
+
     axios.get('/api/products/1337/reviews')
       .then((success) => {
         let allData = success.data.slice();
