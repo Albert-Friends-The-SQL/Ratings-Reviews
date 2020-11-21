@@ -3,6 +3,10 @@
 @import url(//db.onlinewebfonts.com/c/c58afc13c9cbfe8427cc8c9b640cc31d?family=Stars2);
 
 /* Review List Items */
+table {
+  width: 100%;
+}
+
 th {
   text-align: left;
 }
@@ -12,10 +16,10 @@ th {
 }
 
 #reviewItemDate {
-  position: absolute;
-  right: 20px;
+  text-align: right;
+  /* right: 20px; */
   font-size: 12px;
-  margin-top: 16px;
+  /* margin-top: 16px; */
 }
 
 #reviewItemHelpfulY {
@@ -257,6 +261,14 @@ transition: visibility 0s, opacity 0.5s;
   padding: 0;
   display: flex;
   z-index: 0;
+}
+
+#star {
+  width: 76%;
+}
+
+#service3 {
+  width: 60%;
 }
 
 /* Adidas Font */

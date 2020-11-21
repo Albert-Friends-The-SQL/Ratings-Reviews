@@ -6,25 +6,29 @@ import styled from 'styled-components';
 const Star = (props) => {
   if (props.starReview.value === 1) {
     return (
-      <td>&#9733;&#9734;&#9734;&#9734;&#9734;</td>
+      <div id='star'>&#9733;&#9734;&#9734;&#9734;&#9734;</div>
     )
   } else if (props.starReview.value === 2) {
     return (
-      <td>&#9733;&#9733;&#9734;&#9734;&#9734;</td>
+      <div id='star'>&#9733;&#9733;&#9734;&#9734;&#9734;</div>
     )
   } else if (props.starReview.value === 3) {
     return (
-      <td>&#9733;&#9733;&#9733;&#9734;&#9734;</td>
+      <div id='star'>&#9733;&#9733;&#9733;&#9734;&#9734;</div>
     )
   } else if (props.starReview.value === 4) {
     return (
-      <td>&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+      <div id='star'>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
     )
   } else {
     return (
-      <td>&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+      <div id='star'>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
     )
   }
 }
 
 export default Star;
+
+const startTD = styled.td`
+
+`;
