@@ -12,7 +12,7 @@ const ReviewListItem = (props) => {
           <br></br> */}
           <div style={{display:"flex", justifyContent: "space-between", alignItems:"center"}}>
             <Star starReview={props.review}/>
-            <div id='reviewItemDate' style={{fontFamily:"AdihausDIN", color:"#767677", fontSize:"11px"}}>{props.review.review_date}</div>
+            <div id='reviewItemDate' style={{fontFamily:"AdihausDIN", color:"#767677", fontSize:"13px"}}>{props.review.review_date}</div>
             <br></br>
             <br></br>
             <br></br>
@@ -22,17 +22,17 @@ const ReviewListItem = (props) => {
           <table>
             <tbody>
             <tr>
-            <th style={{fontFamily:"adineue PRO KZ Bold", fontSize:"18px", width:"100%"}}>{props.review.review_title}</th>
+            <th style={{fontFamily:"adineue PRO KZ Bold", fontSize:"20px", width:"100%"}}>{props.review.review_title}</th>
           </tr>
 
           <tr>
-            <td style={{fontFamily:"AdihausDIN", fontSize: "13px"}}>{props.review.description}</td>
+            <td style={{fontFamily:"AdihausDIN", fontSize: "14px"}}>{props.review.description}</td>
             <br></br>
             <br></br>
           </tr>
 
           <tr>
-            <td style={{fontSize: "11px", fontFamily:"AdihausDIN"}}>
+            <td style={{fontSize: "13px", fontFamily:"AdihausDIN"}}>
               <span id="checkmark">
                 <div id="checkmark_stem"></div>
                 <div id="checkmark_kick"></div>
@@ -40,7 +40,7 @@ const ReviewListItem = (props) => {
             I recommend this product</td>
           </tr>
           <tr>
-            <td style={{fontFamily:"AdihausDIN", fontSize:"12px"}}><strong style={{fontFamily:"adineue PRO KZ Bold"}}>{props.review.user}</strong><strong style={{color:"#767677", fontSize: "11px"}}> - Verified Purchaser</strong></td>
+            <td style={{fontFamily:"AdihausDIN", fontSize:"13px"}}><strong style={{fontFamily:"adineue PRO KZ Bold"}}>{props.review.user}</strong><strong style={{color:"#767677", fontSize: "13px"}}> - Verified Purchaser</strong></td>
 
           </tr>
           <br></br>
@@ -49,8 +49,8 @@ const ReviewListItem = (props) => {
       </table>
           {/* <tr style={{lineHeight:"10px", position:"relative"}}>
             <td style={{fontFamily:"AdihausDIN", fontSize:"12px", marginBottom:"50px", width:"130px"}}>Was this review helpful?</td> */}
-            <div id='bottomSection' style={{display:"flex", width:"100%", fontFamily:"AdihausDIN", fontSize:"12px"}}>
-              <div style={{width:"33%"}}>
+            <div id='bottomSection' style={{display:"flex", width:"100%", fontFamily:"AdihausDIN", fontSize:"13px"}}>
+              <div style={{width:"33%", overflow:'hidden'}}>
                 Was this review helpful?
               </div>
               <div style={{display:"flex", width:"35%"}}>

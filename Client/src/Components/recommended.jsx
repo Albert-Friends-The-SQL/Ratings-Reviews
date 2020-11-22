@@ -25,7 +25,7 @@ const Recommended = (props) => {
         {overallPercentage}%
       </strong>
     </div>
-    <div style={{fontFamily:"AdihausDIN", fontSize:"12px"}}>of customers recommended this product</div>
+    <div style={{fontFamily:"AdihausDIN", fontSize:"13px"}}>of customers recommended this product</div>
     <br></br>
     {qualities.map((quality) => (
       <RecommendedItem quality={quality} reviewState={props.reviewState}/>

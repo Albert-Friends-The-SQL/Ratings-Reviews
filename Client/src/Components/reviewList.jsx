@@ -282,7 +282,7 @@ const Modal = styled.div`
 position: relative;
 background-color: #fff;
 height: 60%;
-width: 75%;
+width: 50%;
 display: flex;
 flex-wrap: wrap;
 padding: 10px;
