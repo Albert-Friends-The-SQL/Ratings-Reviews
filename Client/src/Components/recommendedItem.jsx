@@ -79,7 +79,7 @@ const ComparisonBarThirdBreak = styled.div`
 
 const Quality = styled.div`
   font-family: AdihausDIN;
-  font-size: 13px;
+  font-size: 14px;
 `;
 
 export default RecommendedItem;

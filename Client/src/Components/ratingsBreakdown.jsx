@@ -51,7 +51,7 @@ const RatingsBreakdown = (props) => {
       </Grid>
         <div>
           <br></br>
-          <div style={{fontFamily: "adineue PRO KZ Bold"}}><strong>RATING BREAKDOWN</strong></div>
+          <div style={{fontFamily: "adineue PRO KZ Bold"}}><strong style={{fontSize:"19px"}}>RATING BREAKDOWN</strong></div>
           <br></br>
             {stars.map((star) => (
               <RatingBar
