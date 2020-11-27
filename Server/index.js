@@ -30,7 +30,6 @@ App.post('/api/reviews', (req, res) => {
 })
 
 App.put('/api/reviews', (req, res) => {
-  console.log(req.body)
   db.updateHelpful(req.body.id, req.body.helpful.toLowerCase(), (err, success) => {
     if (err) {
       res.status(404).send('Error updating helpful number')
@@ -43,5 +42,3 @@ App.put('/api/reviews', (req, res) => {
 App.listen(3003, () => (
   console.log('Listening on port 3003')
 ))
-
-//Built out App.get for reviews - to make pull request in morning

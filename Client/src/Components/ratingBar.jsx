@@ -34,18 +34,18 @@ const RatingBox = styled.div`
 `;
 
 const StarNumber = styled.div`
-  font-size: 14px;
+  font-size: 15px;
   text-decoration: underline;
   font-family: AdihausDIN;
   cursor: pointer;
-  width: 53px;
+  width: 58px;
   font-weight: 700;
   margin-left: 5px;
 `;
 
 const BarBorder = styled.div`
   background-color: #767677;
-  height: 4px
+  height: 5px
   border-radius: 15px;
   width:155px;
   float:right;
@@ -53,10 +53,8 @@ const BarBorder = styled.div`
 `;
 
 const BarProgress = styled.div`
-  height: 4px;
+  height: 5px;
   border-radius: 15px;
-  /* width: ${(props) => props.percent}; */
-  /* width: 50%; */
   background-color:#2ada71;
 `;
 
@@ -65,7 +63,7 @@ const TotalReviews = styled.div`
   margin: -14px 15px 5px 6px;
   line-height: 10px;
   font-family: AdihausDIN;
-  font-size: 11px
+  font-size: 13px
 `;
 
 export default RatingBar;
