@@ -100,7 +100,7 @@ th {
   bottom: -4px;
   height: 10px;
   left: 5px;
-  width: 99%;
+  width: 99.5%;
 }
 
 #bottomReviewBtnWrite::after {
@@ -190,8 +190,7 @@ transition: visibility 0s, opacity 0.5s;
   display:inline-block;
   width: 10px;
   height:14px;
-  -ms-transform: rotate(45deg); /* IE 9 */
-  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
   margin: 8px;
 }
@@ -214,26 +213,6 @@ transition: visibility 0s, opacity 0.5s;
   top:20px;
 }
 
-/* Star Rating */
-/* #star-ratings-sprite {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
-  font-size: 0;
-  height: 21px;
-  line-height: 0;
-  overflow: hidden;
-  text-indent: -400em;
-  width: 110px;
-  margin: 0 auto;
-}
-
-#star-ratings-sprite-rating {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
-  background-position: 0 100%;
-  float: left;
-  height: 21px;
-  display:block;
-} */
-
 #rating {
   display: inline-block;
   unicode-bidi: bidi-override;
@@ -249,6 +228,7 @@ transition: visibility 0s, opacity 0.5s;
 }
 
 #rating-upper {
+  font-size:14px;
   color: black;
   padding: 0;
   position: absolute;
@@ -260,6 +240,7 @@ transition: visibility 0s, opacity 0.5s;
 }
 
 #rating-lower {
+  font-size:14px;
   padding: 0;
   display: flex;
   z-index: 0;

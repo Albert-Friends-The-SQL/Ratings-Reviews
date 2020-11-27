@@ -15,7 +15,6 @@ const RatingsBreakdown = (props) => {
 
   return (
     <div id='ratingsBreakdown'>
-      {/* ★★★★ */}
       <Grid>
         <div id='breakdownBox'>
           <Row>
@@ -42,8 +41,8 @@ const RatingsBreakdown = (props) => {
             </div>
               </Row>
               <Row style={{fontFamily:"AdihausDIN"}}>
-                <div style={{marginRight: "2px", fontFamily:"adineue PRO KZ Bold", fontSize:"14px", marginTop:"2px"}}>{allReviews}</div>
-                <div>Reviews</div>
+                <div style={{marginRight: "2px", fontFamily:"adineue PRO KZ Bold", fontSize:"15px", marginTop:"2px"}}>{allReviews}</div>
+                <div style={{fontSize:"14px"}}>Reviews</div>
               </Row>
             </Col>
           </Row>

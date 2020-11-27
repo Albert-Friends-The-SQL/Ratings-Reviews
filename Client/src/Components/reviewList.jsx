@@ -70,47 +70,52 @@ const ReviewList = (props) => {
 
   return (
     <div>
-      <div id='filterBtns' style={{display:"flex"}}>
+      <div
+        id='filterBtns'
+        style={{display:"flex"}}
+      >
         <NewestBtn
           id='filterBtn'
           onClick={props.onNewestClick}
           state={props.reviewState}
-          >NEWEST
+          > NEWEST
         </NewestBtn>
         <HelpfulBtn
           id='filterBtn'
           onClick={props.onHelpfulClick}
           state={props.reviewState}
-          >HELPFUL
+          > HELPFUL
         </HelpfulBtn>
-        <RelevantBtn id='filterBtn'
-         onClick={props.onRelevantClick}
-         state={props.reviewState}
-         >RELEVANT
+        <RelevantBtn
+          id='filterBtn'
+          onClick={props.onRelevantClick}
+          state={props.reviewState}
+        > RELEVANT
         </RelevantBtn>
       </div>
       {currentReviews.map((review) => (
         <ReviewListItem
           review={review}
           onHelpfulClickNumber={props.onHelpfulClickNumber}
-        />
-      ))}
+      />))}
       <br></br>
-      <div style={{display:"flex", justifyContent:"space-between"}}>
+      <div
+        style={{display:"flex", justifyContent:"space-between"}}
+      >
         <button
           id='bottomReviewBtn'
           onClick={props.onLoadMoreClick}
-          style={{width:"49%", display:"flex", justifyContent:"space-between", letterSpacing:"2px", fontSize: "11px"}}
+          style={{width:"49%", display:"flex", justifyContent:"space-between", letterSpacing:"2px", fontSize: "13px"}}
           >
-            <div className='loadmore'>LOAD MORE</div>
-            <div style={{color:"black", fontSize:"13px"}}>→</div>
+          <div className='loadmore'> LOAD MORE </div>
+          <div style={{color:"black", fontSize:"13px"}}>→</div>
         </button>
         <button
           id='bottomReviewBtnWrite'
-          style={{backgroundColor:"black", color:"white", width:"49%", display:"flex", justifyContent:"space-between", letterSpacing:"2px", fontSize: "11px"}}
+          style={{backgroundColor:"black", color:"white", width:"49%", display:"flex", justifyContent:"space-between", letterSpacing:"2px", fontSize: "13px"}}
           onClick={onModalClick}>
-            <div class='writeareview'>WRITE A REVIEW</div>
-            <div style={{color:"white", fontSize:"13px"}}>→</div>
+          <div class='writeareview'> WRITE A REVIEW </div>
+          <div style={{color:"white", fontSize:"13px"}}>→</div>
         </button>
       </div>
 
@@ -118,8 +123,14 @@ const ReviewList = (props) => {
         <Modal>
           <TitleH2>Write Your Review</TitleH2>
           <LeftModal>
-            <strong style={{fontFamily:"adineue PRO KZ Bold"}}>Your Overall Rating</strong>
-            <LeftModalRating style={{fontSize: "13px"}}>Please select</LeftModalRating>
+            <strong
+              style={{fontFamily:"adineue PRO KZ Bold"}}
+            > Your Overall Rating
+            </strong>
+            <LeftModalRating
+              style={{fontSize: "13px"}}
+            > Please select
+            </LeftModalRating>
             <LeftModalRating>
               <SelectRating id='overallRating'>
                 <option value="0">Select rating:</option>
@@ -131,7 +142,10 @@ const ReviewList = (props) => {
               </SelectRating>
             </LeftModalRating>
             <br></br>
-            <LeftModalRating style={{fontFamily:"adineue PRO KZ Bold"}}>Size</LeftModalRating>
+            <LeftModalRating
+              style={{fontFamily:"adineue PRO KZ Bold"}}
+            > Size
+            </LeftModalRating>
             <LeftModalRating>
             <SelectRating id='sizeRating'>
                 <option value="0">Select rating:</option>
@@ -143,7 +157,10 @@ const ReviewList = (props) => {
               </SelectRating>
             </LeftModalRating>
             <br></br>
-            <LeftModalRating style={{fontFamily:"adineue PRO KZ Bold"}}>Comfort</LeftModalRating>
+            <LeftModalRating
+              style={{fontFamily:"adineue PRO KZ Bold"}}
+            > Comfort
+            </LeftModalRating>
             <LeftModalRating>
               <SelectRating id='comfortRating'>
                   <option value="0">Select rating:</option>
@@ -159,8 +176,14 @@ const ReviewList = (props) => {
           </LeftModal>
 
           <RightModal>
-            <strong style={{fontFamily:"adineue PRO KZ Bold"}}>Would You Recommend This Product?</strong>
-            <RightModalRating style={{fontSize: "13px"}}>Please select</RightModalRating>
+            <strong
+              style={{fontFamily:"adineue PRO KZ Bold"}}
+            > Would You Recommend This Product?
+            </strong>
+            <RightModalRating
+              style={{fontSize: "13px"}}
+            > Please select
+            </RightModalRating>
             <RightModalRating>
             <SelectRating id='recommendedRating'>
                 <option value="0">Select:</option>
@@ -169,7 +192,10 @@ const ReviewList = (props) => {
               </SelectRating>
             </RightModalRating>
             <br></br>
-            <RightModalRating style={{fontFamily:"adineue PRO KZ Bold"}}>Width</RightModalRating>
+            <RightModalRating
+              style={{fontFamily:"adineue PRO KZ Bold"}}
+            > Width
+            </RightModalRating>
             <RightModalRating>
             <SelectRating id='widthRating'>
                   <option value="0">Select rating:</option>
@@ -181,7 +207,10 @@ const ReviewList = (props) => {
                 </SelectRating>
             </RightModalRating>
             <br></br>
-            <RightModalRating style={{fontFamily:"adineue PRO KZ Bold"}}>Quality</RightModalRating>
+            <RightModalRating
+              style={{fontFamily:"adineue PRO KZ Bold"}}
+            > Quality
+            </RightModalRating>
             <RightModalRating>
             <SelectRating id='qualityRating'>
                   <option value="0">Select rating:</option>
@@ -196,7 +225,10 @@ const ReviewList = (props) => {
           <PageBorder></PageBorder>
 
           <BottomModal>
-            <strong style={{fontFamily:"adineue PRO KZ Bold"}}>Your Review</strong>
+            <strong
+              style={{fontFamily:"adineue PRO KZ Bold"}}
+            > Your Review
+            </strong>
             <BottomModalItems>
               <input
                 id='review_title'
@@ -259,18 +291,7 @@ const ReviewList = (props) => {
 }
 
 const ModalBg = styled.div`
-/* position: fixed;
-width: 100%;
-height: 100vh;
-background-color: rgba(0,0,0,.5);
-display: flex;
-justify-content: center;
-align-items: center;
-top: 0;
-left: 0;
-visibility: hidden;
-opacity: 0;
-transition: visibility 0s, opacity 0.5s; */
+
 `;
 
 const ModalBgActice = styled.div`
@@ -347,8 +368,6 @@ width: 100%;
 height: 1%;
 font-size: 50px;
 margin-bottom: 20px;
-/* color: #767677; */
-/* color: #2ada71; */
 color: black;
 `;
 
@@ -364,13 +383,10 @@ width: 90%;
 const WriteReview = styled.div`
 font-family: AdihausDIN;
 width: 200px;
-/* background-color: #2ada71; */
 background-color: black;
 height 20px;
 color: white;
 border: 2px solid black;
-/* border: 2px solid #2ada71; */
-/* border-radius: 14px; */
 text-align: center;
 vertical-align: center;
 margin-top: 21px;
@@ -383,7 +399,6 @@ const SelectRating = styled.select`
 
 const NewestBtn = styled.div`
   background-color: rgb(255, 255, 255);
-  /* color: #767677; */
   color: ${(props) => props.state.newest ? "black" : "#767677"};
   width: 33%;
   border: .5px solid black;
@@ -395,7 +410,6 @@ const NewestBtn = styled.div`
 
 const HelpfulBtn = styled.div`
 background-color: rgb(255, 255, 255);
-/* color: #767677; */
 color: ${(props) => props.state.helpful ? "black" : "#767677"};
 width: 33%;
 border: .5px solid black;
@@ -407,7 +421,6 @@ cursor: pointer;
 
 const RelevantBtn = styled.div`
 background-color: rgb(255, 255, 255);
-/* color: #767677; */
 color: ${(props) => props.state.relevant ? "black" : "#767677"};
 width: 33%;
 border: .5px solid black;

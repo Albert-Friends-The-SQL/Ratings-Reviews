@@ -18,7 +18,6 @@ const RecommendedItem = (props) => {
           <ComparisonBarFirstBreak></ComparisonBarFirstBreak>
           <ComparisonBarSecondBreak></ComparisonBarSecondBreak>
           <ComparisonBarThirdBreak></ComparisonBarThirdBreak>
-          {/* <TriangleIndicator></TriangleIndicator> */}
           <RecommendedTriangle reviewState={props.reviewState} quality={props.quality}/>
         </ComparisonBar>
         <SpanAll>
@@ -42,7 +41,7 @@ const ComparisonBar = styled.div`
 
 const SpanAll = styled.div`
   display: flex;
-  font-size: 10px;
+  font-size: 11px;
   justify-content: space-between;
   letter-spacing: 1px;
   box-sizing: border-box;
@@ -56,7 +55,6 @@ const ComparisonBarFirstBreak = styled.div`
   left: 25%;
   width: 4px;
   height: 4px
-  /* box-sizing: border-box; */
 `;
 
 const ComparisonBarSecondBreak = styled.div`
@@ -65,7 +63,6 @@ const ComparisonBarSecondBreak = styled.div`
   left: 50%;
   width: 4px;
   height: 4px
-  /* box-sizing: border-box; */
 `;
 
 const ComparisonBarThirdBreak = styled.div`
@@ -74,12 +71,11 @@ const ComparisonBarThirdBreak = styled.div`
   left: 75%;
   width: 4px;
   height: 4px
-  /* box-sizing: border-box; */
 `;
 
 const Quality = styled.div`
   font-family: AdihausDIN;
-  font-size: 14px;
+  font-size: 15px;
 `;
 
 export default RecommendedItem;

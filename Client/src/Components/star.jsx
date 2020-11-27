@@ -1,8 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
 
-
-//To come back to and figure out how to escape special characters in order to build start out more dynamically
 const Star = (props) => {
   if (props.starReview.value === 1) {
     return (
@@ -28,7 +25,3 @@ const Star = (props) => {
 }
 
 export default Star;
-
-const startTD = styled.td`
-
-`;
