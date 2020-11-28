@@ -13,7 +13,7 @@ const RecommendedItem = (props) => {
 
   return (
     <div>
-      <Quality>{props.quality}</Quality>
+      <Quality>{props.quality.toUpperCase()}</Quality>
       <ComparisonBar>
           <ComparisonBarFirstBreak></ComparisonBarFirstBreak>
           <ComparisonBarSecondBreak></ComparisonBarSecondBreak>
@@ -43,7 +43,7 @@ const SpanAll = styled.div`
   display: flex;
   font-size: 11px;
   justify-content: space-between;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   box-sizing: border-box;
   margin-right: 6px;
   margin-top: 7px;
@@ -75,7 +75,8 @@ const ComparisonBarThirdBreak = styled.div`
 
 const Quality = styled.div`
   font-family: AdihausDIN;
-  font-size: 15px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
 `;
 
 export default RecommendedItem;
