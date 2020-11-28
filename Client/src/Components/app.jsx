@@ -81,17 +81,36 @@ class App extends React.Component {
         filterData.sort((a, b) => {
           return b.value - a.value;
         })
+        if (this.state.helpful) {
+          filterData.sort((a, b) => {
+            return b.helpfulY - a.helpfulY;
+          })
+        } else if (this.state.newest) {
+          filterData.sort((a, b) => {
+            return new Date(b.review_date) - new Date(a.review_date);
+          })
+        }
       } else if (currentStarRating.length === 0) {
-        filterData = this.state.reviewData;
+        filterData = this.state.reviewData.slice();
+          if (this.state.helpful) {
+            filterData.sort((a, b) => {
+              return b.helpfulY - a.helpfulY;
+            })
+          } else if (this.state.newest) {
+              filterData.sort((a, b) => {
+                return new Date(b.review_date) - new Date(a.review_date);
+              })
+            } else {
+            filterData = this.state.reviewData;
+          }
       }
     })
-
-
 
     this.setState({
       displayData: filterData
     })
   }
+
 
   onNewestClick() {
     let allData = this.state.reviewData.slice();
