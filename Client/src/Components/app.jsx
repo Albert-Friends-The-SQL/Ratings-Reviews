@@ -75,10 +75,18 @@ class App extends React.Component {
     })
 
     forEach(this.state.reviewData, review => {
-      if (review.value === number) {
+      // if (review.value === number) {
+        if (currentStarRating.includes(review.value)) {
         filterData.push(review);
+        filterData.sort((a, b) => {
+          return b.value - a.value;
+        })
+      } else if (currentStarRating.length === 0) {
+        filterData = this.state.reviewData;
       }
     })
+
+
 
     this.setState({
       displayData: filterData
