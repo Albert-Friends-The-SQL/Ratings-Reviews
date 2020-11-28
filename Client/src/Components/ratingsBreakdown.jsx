@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import RatingBar from './ratingBar.jsx';
 import { forEach } from 'underscore';
+import RatingsBreakdownFilter from './ratingsBreakdownFilter.jsx'
 
 const RatingsBreakdown = (props) => {
   let allReviews = 0;
@@ -52,6 +53,7 @@ const RatingsBreakdown = (props) => {
           <br></br>
           <div style={{fontFamily: "adineue PRO KZ Bold"}}><strong style={{fontSize:"19px"}}>RATING BREAKDOWN</strong></div>
           <br></br>
+          <RatingsBreakdownFilter starRating={props.starRating}/>
             {stars.map((star) => (
               <RatingBar
                 star={star}

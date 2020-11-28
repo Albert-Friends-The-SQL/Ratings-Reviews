@@ -16,6 +16,7 @@ class App extends React.Component {
       reviewData: [],
       displayData: [],
       reviewCount: 2,
+      starRating: [],
       clickedHelpful: false,
       newest: false,
       helpful: false,
@@ -62,6 +63,17 @@ class App extends React.Component {
 
   onStarRatingClick(number) {
     let filterData = [];
+    let currentStarRating = this.state.starRating.slice();
+    if (currentStarRating.indexOf(number) === -1) {
+      currentStarRating.push(number);
+    } else {
+      currentStarRating.splice(currentStarRating.indexOf(number), 1);
+    }
+
+    this.setState({
+      starRating: currentStarRating
+    })
+
     forEach(this.state.reviewData, review => {
       if (review.value === number) {
         filterData.push(review);
@@ -172,6 +184,7 @@ class App extends React.Component {
                   size={1}
                   allReviews={this.state.reviewData}
                   onStarRatingClick={this.onStarRatingClick}
+                  starRating={this.state.starRating}
                 />
               </Row>
               <Row>
