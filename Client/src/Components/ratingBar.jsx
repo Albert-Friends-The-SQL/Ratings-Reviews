@@ -34,7 +34,7 @@ const RatingBox = styled.div`
 `;
 
 const StarNumber = styled.div`
-  font-size: 15px;
+  font-size: 14px;
   text-decoration: underline;
   font-family: AdihausDIN;
   cursor: pointer;

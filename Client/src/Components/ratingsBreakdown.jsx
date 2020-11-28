@@ -53,7 +53,10 @@ const RatingsBreakdown = (props) => {
           <br></br>
           <div style={{fontFamily: "adineue PRO KZ Bold"}}><strong style={{fontSize:"19px"}}>RATING BREAKDOWN</strong></div>
           <br></br>
-          <RatingsBreakdownFilter starRating={props.starRating}/>
+          <RatingsBreakdownFilter
+            starRating={props.starRating}
+            onStarRatingClick={props.onStarRatingClick}
+          />
             {stars.map((star) => (
               <RatingBar
                 star={star}

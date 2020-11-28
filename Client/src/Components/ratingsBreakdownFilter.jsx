@@ -1,21 +1,33 @@
 import React from 'react';
 import RatingsBreakdownFilterItem from './ratingsBreakdownFilterItem.jsx';
+import styled from 'styled-components';
 
 const RatingsBreakdownFilter = (props) => {
-  console.log(props.starRating);
-  console.log('length', props.starRating.length);
   if (props.starRating.length !== 0) {
-    console.log('tessssst', props.starRating)
     return (
-      <div>Showing reviews:
+      <ReviewFilter>Showing reviews:
         {props.starRating.map((rating) => (
-          <RatingsBreakdownFilterItem rating={rating} />
+          <RatingsBreakdownFilterItem
+            rating={rating}
+            onStarRatingClick={props.onStarRatingClick}
+          />
         ))}
-      </div>
+      </ReviewFilter>
     )
   } else {
     return null;
   }
 };
 
+const ReviewFilter = styled.div`
+  font-family: AdihausDIN;
+  width: 257px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 12px;
+`;
+
+
 export default RatingsBreakdownFilter;
+
