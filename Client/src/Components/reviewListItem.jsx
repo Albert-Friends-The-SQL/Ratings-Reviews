@@ -13,7 +13,7 @@ const ReviewListItem = (props) => {
             <Star starReview={props.review}/>
             <div
               id='reviewItemDate'
-              style={{fontFamily:"AdihausDIN", color:"#767677", fontSize:"14px"}}
+              style={{fontFamily:"AdihausDIN", color:"#767677", fontSize:"13px"}}
             > {props.review.review_date}
             </div>
             <br></br>
