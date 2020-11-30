@@ -33,11 +33,11 @@ const RatingsBreakdown = (props) => {
                     <span>★</span>
                 </div>
                 <div id="rating-lower">
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
                 </div>
             </div>
               </Row>
