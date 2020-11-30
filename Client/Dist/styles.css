@@ -244,6 +244,7 @@ transition: visibility 0s, opacity 0.5s;
   padding: 0;
   display: flex;
   z-index: 0;
+  color: black;
 }
 
 #star {
