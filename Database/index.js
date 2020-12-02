@@ -1,18 +1,20 @@
 const mySQL = require('mysql');
+const {Pool} = require('pg')
 const util = require('util');
 
-const connection = mySQL.createConnection({
+const pool = new Pool({
   host: 'localhost',
-  user: 'root',
-  password: 'password',
+  user: 'postgres',
+  password: 'monkey11',
   database: 'adidas',
+  port: '5432'
 });
 
-connection.connect();
-connection.query = util.promisify(connection.query);
+// pool.connect();
+// pool.query = util.promisify(pool.query);
 
 const getReviews = (callback) => {
-  connection.query('SELECT * FROM users, reviews WHERE users.id = reviews.user_id', (err, success) => {
+  pool.query('SELECT * FROM users, reviews WHERE users.id = reviews.user_id', (err, success) => {
     if (err) {
       callback(err);
     } else {
@@ -22,15 +24,15 @@ const getReviews = (callback) => {
 };
 
 const postReview = (obj, callback) => {
-  connection.query(`INSERT INTO users (user, user_email) values ('${obj.user}', '${obj.user_email}')`)
+  pool.query(`INSERT INTO users (user, user_email) values ('${obj.user}', '${obj.user_email}')`)
     .then((success) => {
-      return connection.query(`SELECT id from users WHERE '${obj.user}' = users.user`)
+      return pool.query(`SELECT id from users WHERE '${obj.user}' = users.user`)
     })
     .catch((err) => {
       callback(err)
     })
     .then((id) => {
-      return connection.query(`INSERT INTO reviews (product_id, review_title, description, review_date, verified, size, width, comfort, quality, value, helpfulY, helpfulN, recommended, user_id) values (1337, '${obj.review_title}', '${obj.description}', '${obj.review_date}', '${obj.verified}', ${obj.size}, ${obj.width}, ${obj.comfort}, ${obj.quality}, ${obj.value}, ${obj.helpfulY}, ${obj.helpfulN}, '${obj.recommended}', ${id[0].id})`)
+      return pool.query(`INSERT INTO reviews (product_id, review_title, description, review_date, verified, size, width, comfort, quality, value, helpfulY, helpfulN, recommended, user_id) values (1337, '${obj.review_title}', '${obj.description}', '${obj.review_date}', '${obj.verified}', ${obj.size}, ${obj.width}, ${obj.comfort}, ${obj.quality}, ${obj.value}, ${obj.helpfulY}, ${obj.helpfulN}, '${obj.recommended}', ${id[0].id})`)
     })
     .catch((err) => {
       console.log(err)
@@ -44,7 +46,7 @@ const postReview = (obj, callback) => {
 
 const updateHelpful = (id, helpful, callback) => {
   if (helpful === 'yes') {
-    connection.query(`UPDATE reviews SET helpfulY = helpfulY + 1 WHERE id = ${id}`, (err, success) => {
+    pool.query(`UPDATE reviews SET helpfulY = helpfulY + 1 WHERE id = ${id}`, (err, success) => {
       if (err) {
         callback(err);
       } else {
@@ -52,7 +54,7 @@ const updateHelpful = (id, helpful, callback) => {
       }
     })
   } else {
-    connection.query(`UPDATE reviews SET helpfulN = helpfulN + 1 WHERE id = ${id}`, (err, success) => {
+    pool.query(`UPDATE reviews SET helpfulN = helpfulN + 1 WHERE id = ${id}`, (err, success) => {
       if (err) {
         callback(err);
       } else {
@@ -62,4 +64,4 @@ const updateHelpful = (id, helpful, callback) => {
   }
 }
 
-module.exports = { connection, getReviews, updateHelpful, postReview };
+module.exports = { pool, getReviews, updateHelpful, postReview };

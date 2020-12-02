@@ -29,13 +29,13 @@ const reviewBuilder = () => {
 
 for (let i = 0; i < 200; i++) {
   const newReview = reviewBuilder();
-  db.connection.query(`INSERT INTO users (
-  user,
+  db.pool.query(`INSERT INTO users (
+  user_name,
   user_email) values (
     '${newReview.user}',
     '${newReview.user_email}')`)
     .then(() => (
-      db.connection.query(`INSERT INTO reviews (
+      db.pool.query(`INSERT INTO reviews (
       product_id,
       review_title,
       description,

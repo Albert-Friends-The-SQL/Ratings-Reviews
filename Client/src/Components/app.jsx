@@ -129,7 +129,7 @@ class App extends React.Component {
   onHelpfulClick() {
     let allData = this.state.reviewData.slice();
     allData.sort((a, b) => {
-      return b.helpfulY - a.helpfulY;
+      return b.helpfuly - a.helpfuly;
     })
 
     this.setState({

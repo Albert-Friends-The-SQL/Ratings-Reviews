@@ -14,7 +14,7 @@ App.get('/api/reviews', (req, res) => {
     if (err) {
       res.status(404).send('Error retreiving reviews');
     } else {
-      res.status(200).send(success);
+      res.status(200).send(success.rows);
     }
   });
 });

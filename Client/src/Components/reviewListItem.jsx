@@ -51,7 +51,7 @@ const ReviewListItem = (props) => {
             >
               <strong
                 style={{fontFamily:"adineue PRO KZ Bold"}}
-              > {props.review.user}
+              > {props.review.user_name}
               </strong>
               <strong style={{color:"#767677", fontSize: "14px"}}> - Verified Purchaser
               </strong>
@@ -79,13 +79,13 @@ const ReviewListItem = (props) => {
                   onClick={(e, id) => props.onHelpfulClickNumber(e, props.review.id)}
                   >Yes
                 </TableDataYLabel>
-                <TableDataY>[{props.review.helpfulY}]</TableDataY>
+                <TableDataY>[{props.review.helpfuly}]</TableDataY>
                 <TableDataNLabel
                   id = 'tableDataYLabel'
                   onClick={(e, id) => props.onHelpfulClickNumber(e, props.review.id)}
                 >No
                 </TableDataNLabel>
-                <TableDataN>[{props.review.helpfulN}]</TableDataN>
+                <TableDataN>[{props.review.helpfuln}]</TableDataN>
               </div>
             </div>
     </div>
