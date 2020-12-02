@@ -14,11 +14,11 @@
 
       `None`
 
-      **Required:**
+    *  **Required:**
 
       `None`
 
-      **Optional:**
+    *  **Optional:**
 
       `None`
 
@@ -103,13 +103,13 @@
       helpfulN: 0
     }`
 
-      **Required:**
+    *  **Required:**
 
       `{
       user: user,
       }`
 
-      **Optional:**
+    *  **Optional:**
 
       `{
       user: user,
@@ -192,11 +192,11 @@
 
       `{id: reviewId, helpful: e.target.innerText})`
 
-      **Required:**
+    *  **Required:**
 
       `axios.put('/api/reviews', {id: reviewId, helpful: e.target.innerText})`
 
-      **Optional:**
+    *  **Optional:**
 
       `None`
 
@@ -248,11 +248,11 @@
 
       `id`
 
-      **Required:**
+    *  **Required:**
 
       `{id: reviewID}`
 
-      **Optional:**
+    *  **Optional:**
 
       `None`
 
