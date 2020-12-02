@@ -27,7 +27,7 @@ const reviewBuilder = () => {
   };
 };
 
-for (let i = 0; i < 200; i++) {
+for (let i = 0; i < 5000; i++) {
   const newReview = reviewBuilder();
   db.pool.query(`INSERT INTO users (
   user_name,

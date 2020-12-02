@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon Server/index.js",
     "watch": "webpack --watch",
-    "seed": "Database/seeding.js",
+    "seed": "sudo -u postgres psql -f Database/schema.sql && node Database/seeding.js",
     "test": "jest"
   },
   "repository": {

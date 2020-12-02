@@ -2,18 +2,17 @@ DROP DATABASE IF EXISTS adidas;
 
 CREATE DATABASE adidas;
 
-USE adidas;
+\c adidas;
 
 CREATE TABLE users (
-  id int NOT NULL AUTO_INCREMENT,
-  user varchar(256),
+  id SERIAL PRIMARY KEY,
+  user_name varchar(256),
   user_email varchar(256),
-  PRIMARY KEY (id),
-  UNIQUE(user, user_email)
+  UNIQUE(user_name, user_email)
 );
 
 CREATE TABLE reviews (
-  id int NOT NULL AUTO_INCREMENT,
+  id SERIAL PRIMARY KEY,
   product_id int NOT NULL,
   review_title varchar(256),
   description varchar(256),
@@ -27,6 +26,5 @@ CREATE TABLE reviews (
   helpfulY int NOT NULL,
   helpfulN int NOT NULL,
   recommended varchar(16),
-  user_id int,
-  PRIMARY KEY (id)
+  user_id int
 );

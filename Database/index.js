@@ -24,7 +24,7 @@ const getReviews = (callback) => {
 };
 
 const postReview = (obj, callback) => {
-  pool.query(`INSERT INTO users (user, user_email) values ('${obj.user}', '${obj.user_email}')`)
+  pool.query(`INSERT INTO users (user_name, user_email) values ('${obj.user}', '${obj.user_email}')`)
     .then((success) => {
       return pool.query(`SELECT id from users WHERE '${obj.user}' = users.user`)
     })
