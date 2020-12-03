@@ -34,49 +34,6 @@
     }]
 ```
 
-### Add review for product id
-  * POST `/api/reviews/:id`
-
-  **Path Parameters:**
-  * `id` Product ID
-
-
-**Success Status Code:** `201`
-
-**Request Body**: Expects JSON with the following keys.
-
-```json
-    {
-      "name": "String",
-      "address": "String",
-      "phone": "String",
-      "website": "String",
-      "googleMap": "String location",
-      "cost": "Number"
-    }
-```
-
-
-### Update review info
-  * PUT `/api/reviews/:id/`
-
-**Path Parameters:**
-  * `id` product id
-  * `helpful` type of vote (positive or negative)
-
-**Success Status Code:** `204`
-
-**Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
-
-```json
-  {
-    "id": 1,
-    "helpful": true
-  }
-```
-
-**Success Status Code:** `204`
-
 ### Add image to review
   * POST `/api/reviews/:id/`
 
@@ -108,6 +65,28 @@
       "user_id": 4
     }
 ```
+
+
+### Update review info
+  * PUT `/api/reviews/:id/`
+
+**Path Parameters:**
+  * `id` product id
+  * `helpful` type of vote (positive or negative)
+
+**Success Status Code:** `204`
+
+**Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
+
+```json
+  {
+    "id": 1,
+    "helpful": true
+  }
+```
+
+**Success Status Code:** `204`
+
 
 * ### Delete reviews
   * DELETE `/api/reviews/:id/`
