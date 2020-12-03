@@ -2,8 +2,8 @@
 ----
   `Multiple endpoints for fetching, posting, updating, and deleting review/user data`
 
-  ### Get review data for product
-  * GET `/api/reviews/:id`
+### Get review data for product
+* GET `/api/reviews/:id`
 
 **Path Parameters:**
   * `id` Product ID
@@ -13,7 +13,7 @@
 **Returns:** JSON
 
 ```json
-    {
+    [{
       "id": 1,
       "user_name": "Efren68",
       "user_email": "Willie64@hotmail.com",
@@ -31,7 +31,7 @@
       "helpfuln": 47,
       "recommended": "Yes",
       "user_id": 4
-    }
+    }]
 ```
 
 ### Add review for product id
@@ -107,4 +107,21 @@
       "recommended": "Yes",
       "user_id": 4
     }
-``
+```
+
+* ### Delete reviews
+  * DELETE `/api/reviews/:id/`
+
+**Path Parameters:**
+  * `id` product id
+
+**Success Status Code:** `200`: Successfully deleted
+
+**Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
+
+```json
+  {
+    "id": 1
+  }
+```
+
