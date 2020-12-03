@@ -34,7 +34,7 @@
     }]
 ```
 
-### Add image to review
+### Add review
   * POST `/api/reviews/:id/`
 
 **Path Parameters:**
