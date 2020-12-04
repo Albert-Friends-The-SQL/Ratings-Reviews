@@ -1,0 +1,464 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20201202.200251.82314.0.001.json",
+    "dumpEventTime": "2020-12-02T20:02:51Z",
+    "dumpEventTimeStamp": "1606968171883",
+    "processId": 82314,
+    "cwd": "/home/albert/seicourse/Ratings-Reviews",
+    "commandLine": [
+      "node",
+      "Database/seeding.js"
+    ],
+    "nodejsVersion": "v12.10.0",
+    "glibcVersionRuntime": "2.31",
+    "glibcVersionCompiler": "2.17",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "linux",
+    "componentVersions": {
+      "node": "12.10.0",
+      "v8": "7.6.303.29-node.16",
+      "uv": "1.31.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.39.2",
+      "napi": "4",
+      "llhttp": "1.1.4",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1c",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v12.10.0/node-v12.10.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.10.0/node-v12.10.0.tar.gz"
+    },
+    "osName": "Linux",
+    "osRelease": "5.4.0-56-generic",
+    "osVersion": "#62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "AMD Ryzen 5 2600 Six-Core Processor",
+        "speed": 2525,
+        "user": 32949000,
+        "nice": 60900,
+        "sys": 6972800,
+        "idle": 361390500,
+        "irq": 0
+      },
+      {
+        "model": "AMD Ryzen 5 2600 Six-Core Processor",
+        "speed": 2513,
+        "user": 24254600,
+        "nice": 23800,
+        "sys": 5159300,
+        "idle": 374829500,
+        "irq": 0
+      },
+      {
+        "model": "AMD Ryzen 5 2600 Six-Core Processor",
+        "speed": 3799,
+        "user": 33598400,
+        "nice": 30900,
+        "sys": 6928000,
+        "idle": 361831500,
+        "irq": 0
+      },
+      {
+        "model": "AMD Ryzen 5 2600 Six-Core Processor",
+        "speed": 3799,
+        "user": 24290500,
+        "nice": 21300,
+        "sys": 5160200,
+        "idle": 375231200,
+        "irq": 0
+      },
+      {
+        "model": "AMD Ryzen 5 2600 Six-Core Processor",
+        "speed": 3799,
+        "user": 32958000,
+        "nice": 41800,
+        "sys": 7407100,
+        "idle": 362286400,
+        "irq": 0
+      },
+      {
+        "model": "AMD Ryzen 5 2600 Six-Core Processor",
+        "speed": 3799,
+        "user": 24212600,
+        "nice": 21600,
+        "sys": 5207100,
+        "idle": 373002500,
+        "irq": 0
+      },
+      {
+        "model": "AMD Ryzen 5 2600 Six-Core Processor",
+        "speed": 3798,
+        "user": 35727000,
+        "nice": 19600,
+        "sys": 9279200,
+        "idle": 354321200,
+        "irq": 0
+      },
+      {
+        "model": "AMD Ryzen 5 2600 Six-Core Processor",
+        "speed": 3799,
+        "user": 26488400,
+        "nice": 23100,
+        "sys": 8608700,
+        "idle": 369145700,
+        "irq": 0
+      },
+      {
+        "model": "AMD Ryzen 5 2600 Six-Core Processor",
+        "speed": 1925,
+        "user": 37999100,
+        "nice": 22100,
+        "sys": 10179800,
+        "idle": 353973000,
+        "irq": 0
+      },
+      {
+        "model": "AMD Ryzen 5 2600 Six-Core Processor",
+        "speed": 2729,
+        "user": 20895700,
+        "nice": 16300,
+        "sys": 14439800,
+        "idle": 362566800,
+        "irq": 0
+      },
+      {
+        "model": "AMD Ryzen 5 2600 Six-Core Processor",
+        "speed": 1519,
+        "user": 35136900,
+        "nice": 28500,
+        "sys": 9265700,
+        "idle": 357741000,
+        "irq": 0
+      },
+      {
+        "model": "AMD Ryzen 5 2600 Six-Core Processor",
+        "speed": 1519,
+        "user": 25578700,
+        "nice": 16000,
+        "sys": 7232800,
+        "idle": 370520500,
+        "irq": 0
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "enp24s0",
+        "internal": false,
+        "mac": "00:d8:61:17:8d:05",
+        "address": "192.168.0.243",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "enp24s0",
+        "internal": false,
+        "mac": "00:d8:61:17:8d:05",
+        "address": "fe80::26ee:1a16:67d8:f93e",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 2
+      }
+    ],
+    "host": "albert-MS-7B86"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x0000000000ae3e75",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::string const&, v8::Local<v8::String>) [node]"
+    },
+    {
+      "pc": "0x00000000009bdd83",
+      "symbol": "node::OnFatalError(char const*, char const*) [node]"
+    },
+    {
+      "pc": "0x0000000000b1948e",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [node]"
+    },
+    {
+      "pc": "0x0000000000b19809",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [node]"
+    },
+    {
+      "pc": "0x0000000000cca1f5",
+      "symbol": " [node]"
+    },
+    {
+      "pc": "0x0000000000cca866",
+      "symbol": "v8::internal::Heap::RecomputeLimits(v8::internal::GarbageCollector) [node]"
+    },
+    {
+      "pc": "0x0000000000cd609a",
+      "symbol": "v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [node]"
+    },
+    {
+      "pc": "0x0000000000cd6fa5",
+      "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [node]"
+    },
+    {
+      "pc": "0x0000000000cd9a68",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationType, v8::internal::AllocationAlignment) [node]"
+    },
+    {
+      "pc": "0x0000000000ca1597",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationType) [node]"
+    },
+    {
+      "pc": "0x0000000000fc9708",
+      "symbol": "v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*) [node]"
+    },
+    {
+      "pc": "0x000000000134e879",
+      "symbol": " [node]"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2153668608,
+    "totalCommittedMemory": 2150126424,
+    "usedMemory": 2145564672,
+    "availableMemory": 48430152,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 31744,
+        "capacity": 261832,
+        "used": 31432,
+        "available": 230400
+      },
+      "new_space": {
+        "memorySize": 4194304,
+        "committedMemory": 1200336,
+        "capacity": 2094656,
+        "used": 148520,
+        "available": 1946136
+      },
+      "old_space": {
+        "memorySize": 2083893248,
+        "committedMemory": 2083795744,
+        "capacity": 2080585624,
+        "used": 2080573352,
+        "available": 12272
+      },
+      "code_space": {
+        "memorySize": 425984,
+        "committedMemory": 294560,
+        "capacity": 202624,
+        "used": 202624,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 528384,
+        "committedMemory": 439496,
+        "capacity": 301440,
+        "used": 301440,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 64315392,
+        "committedMemory": 64315392,
+        "capacity": 64303848,
+        "used": 64303848,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 3456,
+        "used": 3456,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 2094656,
+        "used": 0,
+        "available": 2094656
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 218.174,
+    "kernelCpuSeconds": 10.9794,
+    "cpuConsumptionPercent": 192.566,
+    "maxRss": 3016798208,
+    "pageFaults": {
+      "IORequired": 14,
+      "IONotRequired": 1016303
+    },
+    "fsActivity": {
+      "reads": 3224,
+      "writes": 24
+    }
+  },
+  "uvthreadResourceUsage": {
+    "userCpuSeconds": 113.902,
+    "kernelCpuSeconds": 3.38819,
+    "cpuConsumptionPercent": 98.5635,
+    "fsActivity": {
+      "reads": 3224,
+      "writes": 24
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "SHELL": "/bin/bash",
+    "SESSION_MANAGER": "local/albert-MS-7B86:@/tmp/.ICE-unix/3246,unix/albert-MS-7B86:/tmp/.ICE-unix/3246",
+    "QT_ACCESSIBILITY": "1",
+    "COLORTERM": "truecolor",
+    "XDG_CONFIG_DIRS": "/etc/xdg/xdg-ubuntu:/etc/xdg",
+    "NVM_INC": "/home/albert/.nvm/versions/node/v12.10.0/include/node",
+    "XDG_MENU_PREFIX": "gnome-",
+    "TERM_PROGRAM_VERSION": "1.51.1",
+    "GNOME_DESKTOP_SESSION_ID": "this-is-deprecated",
+    "APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL": "true",
+    "MANDATORY_PATH": "/usr/share/gconf/ubuntu.mandatory.path",
+    "GNOME_SHELL_SESSION_MODE": "ubuntu",
+    "SSH_AUTH_SOCK": "/run/user/1000/keyring/ssh",
+    "XMODIFIERS": "@im=ibus",
+    "DESKTOP_SESSION": "ubuntu",
+    "SSH_AGENT_PID": "3213",
+    "NO_AT_BRIDGE": "1",
+    "EDITOR": "vim",
+    "GTK_MODULES": "gail:atk-bridge",
+    "PWD": "/home/albert/seicourse/Ratings-Reviews",
+    "XDG_SESSION_DESKTOP": "ubuntu",
+    "LOGNAME": "albert",
+    "XDG_SESSION_TYPE": "x11",
+    "GPG_AGENT_INFO": "/run/user/1000/gnupg/S.gpg-agent:0:1",
+    "XAUTHORITY": "/run/user/1000/gdm/Xauthority",
+    "VSCODE_GIT_ASKPASS_NODE": "/usr/share/code/code",
+    "GJS_DEBUG_TOPICS": "JS ERROR;JS LOG",
+    "WINDOWPATH": "2",
+    "HOME": "/home/albert",
+    "USERNAME": "albert",
+    "IM_CONFIG_PHASE": "1",
+    "LANG": "en_US.UTF-8",
+    "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:",
+    "XDG_CURRENT_DESKTOP": "Unity",
+    "GIT_ASKPASS": "/usr/share/code/resources/app/extensions/git/dist/askpass.sh",
+    "INVOCATION_ID": "78b6d7542a274f248b019fccb65cecc0",
+    "MANAGERPID": "3007",
+    "CHROME_DESKTOP": "code-url-handler.desktop",
+    "GJS_DEBUG_OUTPUT": "stderr",
+    "NVM_DIR": "/home/albert/.nvm",
+    "LESSCLOSE": "/usr/bin/lesspipe %s %s",
+    "XDG_SESSION_CLASS": "user",
+    "TERM": "xterm-256color",
+    "DEFAULTS_PATH": "/usr/share/gconf/ubuntu.default.path",
+    "LESSOPEN": "| /usr/bin/lesspipe %s",
+    "USER": "albert",
+    "VSCODE_GIT_IPC_HANDLE": "/run/user/1000/vscode-git-519edbd86e.sock",
+    "VISUAL": "vim",
+    "DISPLAY": ":1",
+    "SHLVL": "1",
+    "NVM_CD_FLAGS": "",
+    "QT_IM_MODULE": "ibus",
+    "XDG_RUNTIME_DIR": "/run/user/1000",
+    "VSCODE_GIT_ASKPASS_MAIN": "/usr/share/code/resources/app/extensions/git/dist/askpass-main.js",
+    "JOURNAL_STREAM": "9:47545",
+    "XDG_DATA_DIRS": "/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop",
+    "PATH": "/home/albert/.nvm/versions/node/v12.10.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "GDMSESSION": "ubuntu",
+    "ORIGINAL_XDG_CURRENT_DESKTOP": "ubuntu:GNOME",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+    "NVM_BIN": "/home/albert/.nvm/versions/node/v12.10.0/bin",
+    "GIO_LAUNCHED_DESKTOP_FILE_PID": "8685",
+    "GIO_LAUNCHED_DESKTOP_FILE": "/usr/share/applications/code.desktop",
+    "OLDPWD": "/home/albert/seicourse",
+    "TERM_PROGRAM": "vscode",
+    "_": "/home/albert/.nvm/versions/node/v12.10.0/bin/node"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": 0,
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": 67108864,
+      "hard": 67108864
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 1048576,
+      "hard": 1048576
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": "unlimited"
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 63620,
+      "hard": 63620
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "linux-vdso.so.1",
+    "/lib/x86_64-linux-gnu/libdl.so.2",
+    "/lib/x86_64-linux-gnu/librt.so.1",
+    "/lib/x86_64-linux-gnu/libstdc++.so.6",
+    "/lib/x86_64-linux-gnu/libm.so.6",
+    "/lib/x86_64-linux-gnu/libgcc_s.so.1",
+    "/lib/x86_64-linux-gnu/libpthread.so.0",
+    "/lib/x86_64-linux-gnu/libc.so.6",
+    "/lib64/ld-linux-x86-64.so.2"
+  ]
+}
