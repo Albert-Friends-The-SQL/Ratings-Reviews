@@ -1,1 +1,5 @@
 node_modules
+Database/reviews.csv
+Database/products.csv
+Database/users.csv
+Client/Dist/bundle.js

@@ -37,22 +37,21 @@ const startWritingUser = (writeStream, encoding, done) => {
   function writing() {
     let canWrite = true;
     do {
-      i--
+      i--;
       let review = reviewBuilder();
       let user = review.user + '\n';
       //check if i === 0 so we would write and call `done`
       if(i === 0){
         // we are done so fire callback
         writeStream.write(user, encoding, done)
-      }else{
+      } else{
         // we are not done so don't fire callback
-        writeStream.write(user, encoding)
+        canWrite = writeStream.write(user, encoding)
       }
       //else call write and continue looping
     } while(i > 0 && canWrite)
 
-    if(i > 0 && !canWrite){
-      console.log("Hit");
+    if (i > 0) {
       //our buffer for stream filled and need to wait for drain
       // Write some more once it drains.
       writeStream.once('drain', writing);
@@ -66,22 +65,21 @@ const startWritingProduct = (writeStream, encoding, done) => {
   function writing() {
     let canWrite = true;
     do {
-      i--
+      i--;
       let review = reviewBuilder();
       let product = review.productName + '\n';
       //check if i === 0 so we would write and call `done`
-      if(i === 0){
+      if (i === 0){
         // we are done so fire callback
         writeStream.write(product, encoding, done)
-      }else{
+      } else {
         // we are not done so don't fire callback
-        writeStream.write(product, encoding)
+        canWrite = writeStream.write(product, encoding)
       }
       //else call write and continue looping
-    } while(i > 0 && canWrite)
+    } while (i > 0 && canWrite)
 
-    if(i > 0 && !canWrite){
-      console.log("Hit");
+    if (i > 0){
       //our buffer for stream filled and need to wait for drain
       // Write some more once it drains.
       writeStream.once('drain', writing);
@@ -91,21 +89,21 @@ const startWritingProduct = (writeStream, encoding, done) => {
 }
 
 const startWritingReview = (writeStream, encoding, done) => {
-  let i = lines;
+  let i = lines * 10;
   function writing() {
     let canWrite = true;
     do {
-      i--
+      i--;
       let newReview = reviewBuilder();
       let review = `${newReview.productID},${newReview.review_title},${newReview.description},${newReview.review_date},${newReview.verified},${newReview.size},${newReview.width},${newReview.comfort},${newReview.quality},${newReview.value},${newReview.helpfulY},${newReview.helpfulN},${newReview.recommended}\n`;
       if(i === 0){
         writeStream.write(review, encoding, done)
-      }else{
-        writeStream.write(review, encoding)
+      } else{
+        canWrite = writeStream.write(review, encoding)
       }
     } while(i > 0 && canWrite)
 
-    if(i > 0 && !canWrite){
+    if (i > 0){
       writeStream.once('drain', writing);
     }
   }
@@ -119,13 +117,46 @@ reviewStream.write(`product_id,review_title,description,review_date,verified,siz
 //invoke startWriting and pass callback
 startWritingUser(userStream, 'utf-8', () => {
   userStream.end();
+  console.log("Users uploaded")
   startWritingProduct(productStream, 'utf-8', () => {
     productStream.end();
+    console.log("Products Uploaded");
     startWritingReview(reviewStream, 'utf-8', () => {
       reviewStream.end();
+      console.log("Reviews uploaded");
     })
   })
 })
+
+
+
+// function writeTenMillionUsers(writer, encoding, callback) {
+//   let i = 10000000;
+//   let id = 0;
+//   function write() {
+//     let ok = true;
+//     do {
+//       i -= 1;
+//       id += 1;
+//       const username = faker.internet.userName();
+//       const avatar = faker.image.avatar();
+//       const data = `${id},${username},${avatar}\n`;
+//       if (i === 0) {
+//         writer.write(data, encoding, callback);
+//       } else {
+// // see if we should continue, or wait
+// // don't pass the callback, because we're not done yet.
+//         ok = writer.write(data, encoding);
+//       }
+//     } while (i > 0 && ok);
+//     if (i > 0) {
+// // had to stop early!
+// // write some more once it drains
+//       writer.once('drain', write);
+//     }
+//   }
+// write()
+// }
 
 // fs.writeFile('./Database/users.csv', '', (err) => {
 //   if (err) {
