@@ -3,9 +3,9 @@ const db = require('./index');
 const fs = require('file-system');
 const argv = require('yargs').argv
 // const db = require('./index');
-const userStream = fs.createWriteStream("./Database/users.csv")
-const productStream = fs.createWriteStream("./Database/products.csv")
-const reviewStream = fs.createWriteStream("./Database/reviews.csv")
+const userStream = fs.createWriteStream("/Users/alberto/Library/Application\ Support/com.Neo4j.Relate/Data/dbmss/dbms-fad022a7-6706-40bd-aede-e17f2c5ffb7e/import/users.csv")
+const productStream = fs.createWriteStream("/Users/alberto/Library/Application\ Support/com.Neo4j.Relate/Data/dbmss/dbms-fad022a7-6706-40bd-aede-e17f2c5ffb7e/import/products.csv")
+const reviewStream = fs.createWriteStream("/Users/alberto/Library/Application\ Support/com.Neo4j.Relate/Data/dbmss/dbms-fad022a7-6706-40bd-aede-e17f2c5ffb7e/import/reviews.csv")
 const lines = argv.lines || 1000000;
 
 
