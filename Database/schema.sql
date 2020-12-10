@@ -4,13 +4,9 @@ CREATE DATABASE adidas;
 
 \c adidas;
 
--- CREATE TABLE products (
---   id SERIAL PRIMARY KEY
--- )
-
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  user_name varchar(256),
+  user_name varchar(256)
 );
 
 CREATE TABLE reviews (
@@ -33,5 +29,3 @@ CREATE TABLE reviews (
 );
 
 
-
--- Whenever reviews or users are added, all aggregate counts in other tables have to be updated at the same time
