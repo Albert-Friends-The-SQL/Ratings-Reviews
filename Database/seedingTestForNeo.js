@@ -31,6 +31,7 @@ const reviewBuilder = () => {
     description: faker.company.catchPhrase(),
     review_date: faker.date.recent(),
     size: faker.random.number(ratingRange),
+    verified: faker.random.boolean();
     width: faker.random.number(ratingRange),
     comfort: faker.random.number(ratingRange),
     quality: faker.random.number(ratingRange),

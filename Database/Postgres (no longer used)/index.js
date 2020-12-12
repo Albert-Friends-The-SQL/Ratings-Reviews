@@ -14,7 +14,7 @@ const pool = new Pool({
 // pool.query = util.promisify(pool.query);
 
 const getReviews = (callback) => {
-  pool.query('SELECT * FROM users, reviews WHERE users.id = reviews.user_id', (err, success) => {
+  pool.query('SELECT users.user_name, reviews.review_title, reviews.description, reviews.review_date, reviews.verified, reviews.size, reviews.width, reviews.comfort, reviews.quality, reviews.value, reviews.helpfulY, reviews.helpfulN, reviews.recommended from reviews INNER JOIN users ON reviews.user_id = users.id WHERE reviews.product_id = 2985928;', (err, success) => {
     if (err) {
       callback(err);
     } else {
@@ -24,7 +24,7 @@ const getReviews = (callback) => {
 };
 
 const postReview = (obj, callback) => {
-  pool.query(`INSERT INTO users (user_name, user_email) values ('${obj.user}', '${obj.user_email}')`)
+  pool.query(`INSERT INTO users (user_name) values ('${obj.user}')`)
     .then((success) => {
       return pool.query(`SELECT id from users WHERE '${obj.user}' = users.user`)
     })

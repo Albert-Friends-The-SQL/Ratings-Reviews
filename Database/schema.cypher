@@ -38,3 +38,5 @@ CREATE (review) -[:WRITTENFOR]-> (product);
 CREATE CONSTRAINT personIdConstraint ON (user:User) ASSERT user.id IS UNIQUE;
 CREATE CONSTRAINT productIdConstraint ON (product:Product) ASSERT product.id IS UNIQUE;
 CREATE CONSTRAINT reviewIdConstraint ON (review:Review) ASSERT review.id IS UNIQUE;
+
+// SELECT users.user_name, reviews.review_title, reviews.description, reviews.review_date, reviews.verified, reviews.size, reviews.width, reviews.comfort, reviews.quality, reviews.value, reviews.helpfulY, reviews.helpfulN, reviews.recommended from reviews INNER JOIN users ON reviews.user_id = users.id WHERE reviews.product_id = 3858274;

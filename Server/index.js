@@ -1,6 +1,11 @@
 const express = require('express');
+const db = require('../Database/neoindex.js');
+const newrelic = require('newrelic');
+newrelic.instrumentLoadedModule(
+  'express',
+  express
+)
 const App = express();
-const db = require('../Database/index.js');
 
 App.use(express.static('Client/Dist'));
 App.use(express.json());
@@ -9,12 +14,12 @@ App.get('/', (req, res) => (
   console.log('Hi there, you conencted to the server')
 ));
 
-App.get('/api/reviews', (req, res) => {
-  db.getReviews((err, success) => {
+App.get('/api/reviews/:id', (req, res) => {
+  db.getReviews(req.params.id, (err, success) => {
     if (err) {
       res.status(404).send('Error retreiving reviews');
     } else {
-      res.status(200).send(success.rows);
+      res.status(200).send(success.records);
     }
   });
 });
