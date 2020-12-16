@@ -15,7 +15,7 @@ neo.session.run("call apoc.periodic.iterate('MATCH (n) RETURN n', 'DETACH DELETE
         neo.session.run("call apoc.periodic.iterate('MATCH (user:User), (review:Review) WHERE NOT (user) -[:WROTE]->() AND user.id = review.userId RETURN (user), (review)', 'CREATE (user) -[:WROTE]-> (review);', {batchSize: 10000, parallel: true, iterateList: true}) yield batches, total return batches, total;")
         .then(result => {
           console.log("user and review relationships created");
-          neo.session.run("call apoc.periodic.iterate('MATCH (review:Review), (product:Product) WHERE review.productId = product.id RETURN (review), (product)', 'CREATE (review) -[:WRITTENFOR]-> (product);', {batchSize:10000, parallel: true, iterateList: true})")
+          neo.session.run("call apoc.periodic.iterate('MATCH (review:Review), (product:Product) WHERE NOT (review) -[:WRITTENFOR]-> () AND review.productId = product.id RETURN (review), (product)', 'CREATE (review) -[:WRITTENFOR]-> (product);', {batchSize:10000, parallel: true, iterateList: true})")
           .then(result => {
             console.log("WE DID IT");
           })

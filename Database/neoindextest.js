@@ -1,7 +1,9 @@
 const neo4j = require('neo4j-driver');
 
-const driver = neo4j.driver("neo4j://3.239.2.250:7687", neo4j.auth.basic("neo4j", "monkey11"));
-const session = driver.session({database: "reviews"});
+const driver = neo4j.driver("neo4j://localhost:7687", neo4j.auth.basic("neo4j", "monkey11"));
+const session = driver.session({
+  database: "reviewstest"
+});
 
 const getReviews = (product, callback) => {
   session.run(`MATCH (user:User) -[:WROTE]-> (review:Review) -[r:WRITTENFOR]-> (product:Product {id: ${product}}) RETURN user.userName, review.reviewTitle, review.reviewDescription, review.reviewDate, review.reviewVerified, review.sizeRating, review.widthRating, review.comfortRating, review.qualityRating, review.ratingsValue, review.helpfulYes, review.helpfulNo, review.recommended, product.name;`)

@@ -107,14 +107,14 @@ const startWritingReview = (writeStream, encoding, done) => {
       i++;
       let newReview = reviewBuilder();
       let review = `${i},${newReview.productID},${newReview.review_title},${newReview.description},${newReview.review_date},${newReview.verified},${newReview.size},${newReview.width},${newReview.comfort},${newReview.quality},${newReview.value},${newReview.helpfulY},${newReview.helpfulN},${newReview.recommended},${newReview.userID}\n`;
-      if(i === (lines * 3)){
+      if(i === 10000000) {
         writeStream.write(review, encoding, done)
       } else{
         canWrite = writeStream.write(review, encoding)
       }
-    } while(i < (lines * 3) && canWrite)
+    } while(i < 10000000 && canWrite)
 
-    if (i < (lines * 3)){
+    if (i < 10000000) {
       writeStream.once('drain', writing);
     }
   }

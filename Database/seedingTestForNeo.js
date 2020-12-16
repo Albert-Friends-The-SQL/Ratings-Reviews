@@ -1,12 +1,10 @@
 const faker = require('faker/locale/en.js');
-const db = require('./index');
 const fs = require('file-system');
 const argv = require('yargs').argv
-// const db = require('./index');
 const userStream = fs.createWriteStream("/var/lib/neo4j/import/usersTest.csv")
 const productStream = fs.createWriteStream("/var/lib/neo4j/import/productsTest.csv")
 const reviewStream = fs.createWriteStream("/var/lib/neo4j/import/reviewsTest.csv")
-const lines = 10000;
+const lines = 100000;
 
 
 const userBuilder = () => {
@@ -17,7 +15,7 @@ const userBuilder = () => {
 
 const productBuilder = () => {
   return {
-    productName: faker.random.word(),
+    productName: faker.name.jobTitle(),
   }
 }
 
@@ -31,7 +29,7 @@ const reviewBuilder = () => {
     description: faker.company.catchPhrase(),
     review_date: faker.date.recent(),
     size: faker.random.number(ratingRange),
-    verified: faker.random.boolean();
+    verified: faker.random.boolean(),
     width: faker.random.number(ratingRange),
     comfort: faker.random.number(ratingRange),
     quality: faker.random.number(ratingRange),
@@ -39,9 +37,8 @@ const reviewBuilder = () => {
     helpfulY: faker.random.number(helpfulRange),
     helpfulN: faker.random.number(helpfulRange),
     recommended: `${recommended ? 'Yes' : 'No'}`,
-    productID: faker.random.number({min: 1, max: 100000}),
-    productName: faker.random.word(),
-    userID: faker.random.number({min: 1, max: 100000})
+    productID: faker.random.number({min: 1, max: 10000}),
+    userID: faker.random.number({min: 1, max: 10000})
   };
 };
 
@@ -54,7 +51,7 @@ const startWritingUser = (writeStream, encoding, done) => {
       let newUser = userBuilder();
       let user = `${i},${newUser.user}\n`
       //check if i === 0 so we would write and call `done`
-      if(i === lines){
+      if(i === lines) {
         // we are done so fire callback
         writeStream.write(user, encoding, done)
       } else{
@@ -82,7 +79,7 @@ const startWritingProduct = (writeStream, encoding, done) => {
       let newProduct = productBuilder();
       let product = `${i},${newProduct.productName}\n`
       //check if i === 0 so we would write and call `done`
-      if (i === lines){
+      if (i === lines) {
         // we are done so fire callback
         writeStream.write(product, encoding, done)
       } else {
@@ -92,7 +89,7 @@ const startWritingProduct = (writeStream, encoding, done) => {
       //else call write and continue looping
     } while (i < lines && canWrite)
 
-    if (i < lines){
+    if (i < lines) {
       //our buffer for stream filled and need to wait for drain
       // Write some more once it drains.
       writeStream.once('drain', writing);
@@ -109,14 +106,14 @@ const startWritingReview = (writeStream, encoding, done) => {
       i++;
       let newReview = reviewBuilder();
       let review = `${i},${newReview.productID},${newReview.review_title},${newReview.description},${newReview.review_date},${newReview.verified},${newReview.size},${newReview.width},${newReview.comfort},${newReview.quality},${newReview.value},${newReview.helpfulY},${newReview.helpfulN},${newReview.recommended},${newReview.userID}\n`;
-      if(i === (lines * 3)){
+      if(i === 300000) {
         writeStream.write(review, encoding, done)
       } else{
         canWrite = writeStream.write(review, encoding)
       }
-    } while(i < (lines * 3) && canWrite)
+    } while(i < 300000 && canWrite)
 
-    if (i < (lines * 3)){
+    if (i < 300000) {
       writeStream.once('drain', writing);
     }
   }
